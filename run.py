@@ -25,5 +25,13 @@ def list_sheets():
     return worksheet_list
 
 
+def loop_through_worksheets(ws_list):
+    """
+    Loop through the worksheets
+    """
+    for wsh in ws_list:
+        print(wsh)
+
+
 my_list = list_sheets()
-print(my_list)
+loop_through_worksheets(my_list)
