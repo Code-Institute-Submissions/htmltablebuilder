@@ -43,6 +43,9 @@ def manage_wsheet_data(worksheet):
     f_name = open(f'{file_name}', 'w', encoding='utf-8')
     write_table_definition(f_name)
     table_data = get_all_data(worksheet)
+    th_heading_data = get_the_table_header(table_data)
+    th_heading_loop = loop_th_headings(th_heading_data)
+    print(f"The header loop is run. {th_heading_loop }")
 
 
 def write_table_definition(txt_file):
@@ -63,6 +66,16 @@ def write_table_definition(txt_file):
         txt_file.writelines(lines4)
 
 
+def loop_th_headings(header_data):
+    """
+    Loop through the th headings
+    """
+    for head in header_data:
+        print(head)
+
+    return 'Did It'
+
+
 def get_all_data(data):
     """
     Get all the data from the worksheet in a list of lists
@@ -74,11 +87,11 @@ def get_all_data(data):
 
 def get_the_table_header(all_data):
     """
-    Get the table header from the worksheet
+    Get the table header from the worksheet data
     """
-    headings = all_data[0]
-    # for head in headings:
-        # print(head)
+    th_heading = all_data[0]
+
+    return th_heading
 
 
 my_list = list_sheets()
