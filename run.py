@@ -1,6 +1,7 @@
 """
 Set up the API connection
 """
+from pprint import pprint
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -30,7 +31,16 @@ def loop_through_worksheets(ws_list):
     Loop through the worksheets
     """
     for wsh in ws_list:
-        print(wsh)
+        get_wsheet_data(wsh)
+        break
+
+
+def get_wsheet_data(worksheet):
+    """
+    Get all the data from the worksheet
+    """
+    list_of_lists = worksheet.get_all_values()
+    pprint(list_of_lists)
 
 
 my_list = list_sheets()
