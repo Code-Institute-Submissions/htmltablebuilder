@@ -35,8 +35,16 @@ def loop_through_worksheets(ws_list):
 
 def get_wsheet_data(worksheet):
     """
+    Set up the File to Print to
     Get all the data from the worksheet
     """
+    lines = ['<figure id="swappera" class="wp-block-table">']
+    with open(f"assets/htmlfiles/{worksheet}.txt", 'w', encoding='utf-8') as f:
+        for line in lines:
+            f.write(line)
+            f.write('\n')
+
+    print(worksheet)
     all_data = worksheet.get_all_values()
     get_the_table_header(all_data)
 
@@ -46,8 +54,8 @@ def get_the_table_header(all_data):
     Get the table header from the worksheet
     """
     headings = all_data[0]
-    for head in headings:
-        print(head)
+    # for head in headings:
+        # print(head)
 
 
 my_list = list_sheets()
