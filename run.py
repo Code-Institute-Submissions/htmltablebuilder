@@ -40,12 +40,13 @@ def manage_wsheet_data(worksheet):
     Get all the data from the worksheet
     """
     file_name = f"assets/htmlfiles/{worksheet}.txt"
-    f_name = open(f'{file_name}', 'w', encoding='utf-8')
-    write_table_definition(f_name)
+    # f_name = open(f'{file_name}', 'w', encoding='utf-8')
+    write_table_definition(file_name)
     table_data = get_all_data(worksheet)
     th_heading_data = get_the_table_header(table_data)
     th_heading_loop = loop_th_headings(th_heading_data)
-    print(f"The header loop is run. {th_heading_loop }")
+    f_name = open(f'{file_name}', 'w', encoding='utf-8')
+    write_table_th(f_name, th_heading_loop)
 
 
 def write_table_definition(txt_file):
@@ -69,11 +70,50 @@ def write_table_definition(txt_file):
 def loop_th_headings(header_data):
     """
     Loop through the th headings
+    We watch out for colspan requirements in the head data
     """
-    for head in header_data:
-        print(head)
+    k = 0
 
-    return 'Did It'
+    # Subsequent lines may have a colspan in them
+    # This is picked up by counting the blanks trailing a header
+    # This means we cannot actually write the head to the file until
+    # we know how many blanks are trailing it.
+    # So need to work in reverse
+
+    thisth = []
+
+    for head in reversed(header_data):
+        # Check the head
+        if head == "HEADEND":
+            k = 0
+            continue
+        if head == "":
+            k += 1
+            continue
+        if k > 0:
+            linex = '<th style="background-color: #1d4d71;"'
+            linex = linex + f' colspan="{k + 1}">{head}</th>'
+            thisth.append(linex)
+        else:
+            linex = f'<th style="background-color: #1d4d71;">{head}</th>'
+            thisth.append(linex)
+
+        k = 0
+
+    return thisth
+
+
+def write_table_th(txt_file, th_data):
+    """
+    Write the th's for the table
+    """
+    open_tr = "<tr>"
+    txt_file.write(f'{open_tr}\n')
+    for each_th in reversed(th_data):
+        txt_file.write(f'{each_th}\n')
+
+    close_tr = "<\\tr>"
+    txt_file.write(close_tr)
 
 
 def get_all_data(data):
