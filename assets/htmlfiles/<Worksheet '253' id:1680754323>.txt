@@ -1,0 +1,207 @@
+<figure id=swappera class="wp-block-table">
+<div style="overflow-x: auto;">
+<table id=tabletimeA class="tabletime">
+<tbody>
+<tr>
+<th style="background-color: #1d4d71;">Clonakilty to Kinsale</th>
+<th style="background-color: #1d4d71;" colspan="5">Monday to Saturday</th>
+<th style="background-color: #1d4d71;">Extra Bus
+ Fri & Sat</th>
+<th style="background-color: #1d4d71;" colspan="3">Sunday & Bank Holidays</th>
+</tr>
+<tr>
+<td>Clonakilty (Pearse Street Newsagents)</td>
+<td>07:00</td>
+<td>08:40</td>
+<td>12:45</td>
+<td>14:25</td>
+<td>18:10</td>
+<td>21:30</td>
+<td>09:30</td>
+<td>12:30</td>
+<td>14:25</td>
+</tr>
+<tr>
+<td>Clonakilty (Croppy Quay)</td>
+<td>07:02</td>
+<td>08:42</td>
+<td>12:47</td>
+<td>14:27</td>
+<td>18:12</td>
+<td>21:32</td>
+<td>09:32</td>
+<td>12:32</td>
+<td>14:27</td>
+</tr>
+<tr>
+<td>Ring (Kitty Mac’s Pub)</td>
+<td>–</td>
+<td>–</td>
+<td>12:55</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Grange (Grange Tavern)</td>
+<td>–</td>
+<td>–</td>
+<td>13:00</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Lislevane (Post Office)</td>
+<td>–</td>
+<td>–</td>
+<td>13:05</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Courtmacsherry (The Shop)</td>
+<td>–</td>
+<td>–</td>
+<td>13:10</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Darrara (Agricultural College)</td>
+<td>07:07</td>
+<td>08:50</td>
+<td>–</td>
+<td>14:35</td>
+<td>–</td>
+<td>–</td>
+<td>09:40</td>
+<td>12:40</td>
+<td>14:35</td>
+</tr>
+<tr>
+<td>Timoleague (Post Office)</td>
+<td>07:15</td>
+<td>09:00</td>
+<td>13:20</td>
+<td>14:45</td>
+<td>18:30</td>
+<td>21:45</td>
+<td>09:50</td>
+<td>12:50</td>
+<td>14:45</td>
+</tr>
+<tr>
+<td>Kilbrittain (Community Hall)</td>
+<td>07:30</td>
+<td>09:15</td>
+<td>13:35</td>
+<td>15:00</td>
+<td>18:45</td>
+<td>22:00</td>
+<td>10:05</td>
+<td>13:05</td>
+<td>15:00</td>
+</tr>
+<tr>
+<td>Ballinspittle (Lissoran)</td>
+<td>07:40</td>
+<td>09:25</td>
+<td>13:45</td>
+<td>15:10</td>
+<td>18:55</td>
+<td>22:10</td>
+<td>10:15</td>
+<td>13:15</td>
+<td>15:10</td>
+</tr>
+<tr>
+<td>Garretstown (Post Box)</td>
+<td>–</td>
+<td>09:33</td>
+<td>13:53</td>
+<td>15:18</td>
+<td>19:03</td>
+<td>22:18</td>
+<td>10:23</td>
+<td>13:23</td>
+<td>15:18</td>
+</tr>
+<tr>
+<td>Garrylucas (Shop)</td>
+<td>–</td>
+<td>09:35</td>
+<td>13:55</td>
+<td>15:20</td>
+<td>19:05</td>
+<td>22:20</td>
+<td>10:25</td>
+<td>13:25</td>
+<td>15:20</td>
+</tr>
+<tr>
+<td>Old Head (Signal Tower)</td>
+<td>–</td>
+<td>09:40</td>
+<td>14:00</td>
+<td>15:25</td>
+<td>–</td>
+<td>–</td>
+<td>10:30</td>
+<td>13:30</td>
+<td>15:25</td>
+</tr>
+<tr>
+<td>Speckled Door Pub</td>
+<td>–</td>
+<td>09:45</td>
+<td>14:05</td>
+<td>15:30</td>
+<td>19:10</td>
+<td>22:25</td>
+<td>10:35</td>
+<td>13:35</td>
+<td>15:30</td>
+</tr>
+<tr>
+<td>Kinsale (Community College)</td>
+<td>–</td>
+<td>09:58</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Kinsale (Bus Stop in Car Park)</td>
+<td>07:50</td>
+<td>10:00</td>
+<td>14:20</td>
+<td>15:45</td>
+<td>19:25</td>
+<td>22:40</td>
+<td>10:50</td>
+<td>13:50</td>
+<td>15:45</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>

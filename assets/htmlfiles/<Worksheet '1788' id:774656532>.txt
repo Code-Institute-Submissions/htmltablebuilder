@@ -1,0 +1,39 @@
+<figure id=swappera class="wp-block-table">
+<div style="overflow-x: auto;">
+<table id=tabletimeA class="tabletime">
+<tbody>
+<tr>
+<th style="background-color: #1d4d71;">Skenakilla to Mallow
+Friday</th>
+<th style="background-color: #1d4d71;">Depart</th>
+<th style="background-color: #1d4d71;">Return</th>
+</tr>
+<tr>
+<td>Skenakilla</td>
+<td>11:50</td>
+<td>16:25</td>
+</tr>
+<tr>
+<td>Castletownroche</td>
+<td>12:00</td>
+<td>16:15</td>
+</tr>
+<tr>
+<td>Nano Nagle Centre</td>
+<td>12:15</td>
+<td>16:00</td>
+</tr>
+<tr>
+<td>Carrig</td>
+<td>12:30</td>
+<td>15:45</td>
+</tr>
+<tr>
+<td>Mallow</td>
+<td>12:45</td>
+<td>15:30</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>

@@ -1,6 +1,7 @@
 """
 Set up the API connection
 """
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -30,7 +31,12 @@ def loop_through_worksheets(ws_list):
     Loop through the worksheets
     """
     for wsh in ws_list:
-        manage_wsheet_data(wsh)
+        wsname = wsh.title
+        x_find = wsname.find('HTML')
+        if x_find >= 0:
+            pass
+        else:
+            manage_wsheet_data(wsh)
 
 
 def manage_wsheet_data(worksheet):
@@ -171,6 +177,46 @@ def write_table_foot(txt_file):
     append_multiple_lines(txt_file, table_foot, string_type)
 
 
+def write_file_back():
+    """
+    Write the file back to Worksheet
+    """
+    path_of_the_directory = 'assets/htmlfiles/'
+
+    for filename in os.listdir(path_of_the_directory):
+        fname = os.path.join(path_of_the_directory, filename)
+        xfind = filename.find(":")
+        xslice = slice(12, xfind - 4)
+        fslice = filename[xslice]
+        rcheck = f"HTML {fslice}"
+        shfound = False
+        # Now we have the file name with HTML prefix
+        # Check that we do not have this sheet already
+        # Loop through Google Sheets to see if it exists already
+        for htmlsh in TSHEET.worksheets():
+            httitle = htmlsh.title
+            if httitle == rcheck:
+                # If this is true then we already have this.
+                # So flag that
+                shfound = True
+
+        if shfound:
+            # we are out of here
+            break
+        else:
+            # Go ahead and add the sheet
+            try:
+                wsh = TSHEET.add_worksheet(title=rcheck, rows=1, cols=1)
+                text_file = open(fname, encoding='utf-8')
+                data = text_file.read()
+                wsh.update('A1', data)
+            except ValueError as errnum:
+                print(errnum)
+                return False
+
+    return True
+
+
 def append_new_line(file_name, text_to_append):
     """Append given text as a new line at the end of file"""
     # Open the file in append & read mode ('a+')
@@ -240,5 +286,6 @@ def get_the_table_rows(all_data):
     return td_rows
 
 
-my_list = list_sheets()
-loop_through_worksheets(my_list)
+# my_list = list_sheets()
+# loop_through_worksheets(my_list)
+write_file_back()
