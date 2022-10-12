@@ -190,6 +190,10 @@ def write_file_back():
         fslice = filename[xslice]
         rcheck = f"HTML {fslice}"
         shfound = False
+
+        text_file = open(fname, encoding='utf-8')
+        data = text_file.read()
+
         # Now we have the file name with HTML prefix
         # Check that we do not have this sheet already
         # Loop through Google Sheets to see if it exists already
@@ -201,14 +205,13 @@ def write_file_back():
                 shfound = True
 
         if shfound:
-            # we are out of here
-            break
+            # we are editing not adding the sheet
+            htmlsh.update('A1', data)
         else:
             # Go ahead and add the sheet
             try:
-                wsh = TSHEET.add_worksheet(title=rcheck, rows=1, cols=1)
-                text_file = open(fname, encoding='utf-8')
-                data = text_file.read()
+                wsh = TSHEET.add_worksheet(title=rcheck, rows=20, cols=1)
+
                 wsh.update('A1', data)
             except ValueError as errnum:
                 print(errnum)
