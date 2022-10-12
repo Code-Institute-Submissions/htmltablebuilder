@@ -40,13 +40,17 @@ def manage_wsheet_data(worksheet):
     Get all the data from the worksheet
     """
     file_name = f"assets/htmlfiles/{worksheet}.txt"
-    write_table_definition(file_name)
+    txt = worksheet.title
+    write_table_definition(file_name, txt)
     table_data = get_all_data(worksheet)
     th_heading_data = get_the_table_header(table_data)
     write_table_th(file_name, th_heading_data)
+    td_rows_data = get_the_table_rows(table_data)
+    write_table_td(file_name, td_rows_data)
+    write_table_foot(file_name)
 
 
-def write_table_definition(txt_file):
+def write_table_definition(txt_file, txt):
     """
     Put the table definition lines into a list
     Write the definition for the table to a txt file
@@ -54,11 +58,20 @@ def write_table_definition(txt_file):
 
     table_defs = []
 
-    lines = ['<figure id="swappera" class="wp-block-table">']
+    swap = "swappera"
+    tid = "tabletimeA"
+
+    x = txt.find("Return")
+
+    if x == 0:
+        swap = "swapperb"
+        tid = "tabletimeB"
+
+    lines = [f'<figure id={swap} class="wp-block-table">']
     table_defs.append(lines)
     lines1 = ['<div style="overflow-x: auto;">']
     table_defs.append(lines1)
-    lines2 = ['<table id="tabletimeA" class="tabletime">']
+    lines2 = [f'<table id={tid} class="tabletime">']
     table_defs.append(lines2)
     lines3 = ['<tbody>']
     table_defs.append(lines3)
@@ -74,6 +87,7 @@ def write_table_th(txt_file, header_data):
     """
     Loop through the th headings
     We watch out for colspan requirements in the head data
+    Write to txt file
     """
     k = 0
 
@@ -85,7 +99,7 @@ def write_table_th(txt_file, header_data):
 
     thisth = []
 
-    linex = '<\\tr>'
+    linex = '</tr>'
     thisth.append(linex)
 
     for head in reversed(header_data):
@@ -111,6 +125,50 @@ def write_table_th(txt_file, header_data):
     string_type = "simpleList"
 
     append_multiple_lines(txt_file, thisrvth, string_type)
+
+
+def write_table_td(txt_file, table_data):
+    """
+    Loop through the td rows
+    Write to txt file
+    """
+    thistd = []
+    for table_row in table_data:
+        linex = '<tr>'
+        thistd.append(linex)
+        for table_time in table_row:
+            if table_time == "":
+                continue
+            linex = f'<td>{table_time}</td>'
+            thistd.append(linex)
+        linex = '</tr>'
+        thistd.append(linex)
+
+    string_type = "simpleList"
+
+    append_multiple_lines(txt_file, thistd, string_type)
+
+
+def write_table_foot(txt_file):
+    """
+    Put the table footer lines into a list
+    Write the footer for the table to a txt file
+    """
+
+    table_foot = []
+
+    lines = ['</tbody>']
+    table_foot.append(lines)
+    lines1 = ['</table>']
+    table_foot.append(lines1)
+    lines2 = ['</div>']
+    table_foot.append(lines2)
+    lines3 = ['</figure>']
+    table_foot.append(lines3)
+
+    string_type = "complexList"
+
+    append_multiple_lines(txt_file, table_foot, string_type)
 
 
 def append_new_line(file_name, text_to_append):
@@ -168,9 +226,18 @@ def get_the_table_header(all_data):
     """
     Get the table header from the worksheet data
     """
-    th_heading = all_data[0]
+    th_heading = all_data.pop(0)
 
     return th_heading
+
+
+def get_the_table_rows(all_data):
+    """
+    Get the table rows from the worksheet data
+    """
+    td_rows = all_data.copy()
+
+    return td_rows
 
 
 my_list = list_sheets()
