@@ -45,26 +45,30 @@ def manage_wsheet_data(worksheet):
     table_data = get_all_data(worksheet)
     th_heading_data = get_the_table_header(table_data)
     th_heading_loop = loop_th_headings(th_heading_data)
-    f_name = open(f'{file_name}', 'w', encoding='utf-8')
-    write_table_th(f_name, th_heading_loop)
+    # f_name = open(f'{file_name}', 'w', encoding='utf-8')
+    # write_table_th(f_name, th_heading_loop)
 
 
 def write_table_definition(txt_file):
     """
-    Write the definition for the table
+    Put the table definition lines into a list
+    Write the definition for the table to a txt file
     """
-    lines = ['<figure id="swappera" class="wp-block-table">\n']
-    lines1 = ['<div style="overflow-x: auto;">\n']
-    lines2 = ['<table id="tabletimeA" class="tabletime">\n']
-    lines3 = ['<tbody>\n']
-    lines4 = ['<tr>\n']
 
-    with txt_file:
-        txt_file.writelines(lines)
-        txt_file.writelines(lines1)
-        txt_file.writelines(lines2)
-        txt_file.writelines(lines3)
-        txt_file.writelines(lines4)
+    table_defs = []
+
+    lines = ['<figure id="swappera" class="wp-block-table">']
+    table_defs.append(lines)
+    lines1 = ['<div style="overflow-x: auto;">']
+    table_defs.append(lines1)
+    lines2 = ['<table id="tabletimeA" class="tabletime">']
+    table_defs.append(lines2)
+    lines3 = ['<tbody>']
+    table_defs.append(lines3)
+    lines4 = ['<tr>']
+    table_defs.append(lines4)
+
+    append_multiple_lines(txt_file, table_defs)
 
 
 def append_new_line(file_name, text_to_append):
@@ -101,7 +105,8 @@ def append_multiple_lines(file_name, lines_to_append):
             else:
                 append_eol = True
             # Append element at the end of file
-            file_object.write(line)
+            line_txt = line[0]
+            file_object.write(line_txt)
 
 
 def loop_th_headings(header_data):
