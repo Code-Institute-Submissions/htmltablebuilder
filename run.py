@@ -61,9 +61,9 @@ def write_table_definition(txt_file, txt):
     swap = "swappera"
     tid = "tabletimeA"
 
-    x = txt.find("Return")
+    x_find = txt.find("Return")
 
-    if x == 0:
+    if x_find == 0:
         swap = "swapperb"
         tid = "tabletimeB"
 
