@@ -1,5 +1,0 @@
-<figure id="swappera" class="wp-block-table">
-<div style="overflow-x: auto;">
-<table id="tabletimeA" class="tabletime">
-<tbody>
-<tr>
