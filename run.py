@@ -40,7 +40,7 @@ def manage_wsheet_data(worksheet):
     Get all the data from the worksheet
     """
     file_name = f"assets/htmlfiles/{worksheet}.txt"
-    # write_table_definition(file_name)
+    write_table_definition(file_name)
     table_data = get_all_data(worksheet)
     th_heading_data = get_the_table_header(table_data)
     write_table_th(file_name, th_heading_data)
@@ -84,6 +84,9 @@ def write_table_th(txt_file, header_data):
     # So need to work in reverse
 
     thisth = []
+
+    linex = '<\\tr>'
+    thisth.append(linex)
 
     for head in reversed(header_data):
         # Check the head
