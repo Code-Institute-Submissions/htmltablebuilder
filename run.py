@@ -30,6 +30,7 @@ def loop_through_worksheets(ws_list):
     """
     Loop through the worksheets
     """
+    print("Preparing data from worksheets...")
     for wsh in ws_list:
         wsname = wsh.title
         x_find = wsname.find('HTML')
@@ -37,6 +38,7 @@ def loop_through_worksheets(ws_list):
             pass
         else:
             manage_wsheet_data(wsh)
+    print("Data ready to start creating HTML Table code!\n")
 
 
 def manage_wsheet_data(worksheet):
@@ -61,7 +63,6 @@ def write_table_definition(txt_file, txt):
     Put the table definition lines into a list
     Write the definition for the table to a txt file
     """
-
     table_defs = []
 
     swap = "swappera"
@@ -193,7 +194,6 @@ def write_table_foot(txt_file):
     Put the table footer lines into a list
     Write the footer for the table to a txt file
     """
-
     table_foot = []
 
     lines = ['</tbody>']
@@ -215,7 +215,6 @@ def check_creturn(head_txt):
     Check for a carraige return in txt
     If so amend the text to include html <br />
     """
-
     decor_head = head_txt
     xfind = decor_head.find('\n')
     if xfind >= 0:
@@ -233,6 +232,8 @@ def write_file_back():
     Write the file back to Worksheet
     See Credits pythonpool.com
     """
+    print("Writing HTML code from file to worksheet...")
+
     path_of_the_directory = 'assets/htmlfiles/'
 
     for filename in os.listdir(path_of_the_directory):
@@ -253,6 +254,8 @@ def write_file_back():
             print(errnum)
             return False
 
+    print("HTML Table code is now written from file to worksheet!")
+
     return True
 
 
@@ -262,12 +265,14 @@ def clear_html_sheets():
     """
     # Loop through Google Sheets
     # Check the sheet name for HTML prefix
+    print("Removing any HTML worksheets off of Google sheets...")
     for htmlsh in TSHEET.worksheets():
         shtitle = htmlsh.title
         xfind = shtitle.find("HTML")  # look for this in filename
         if xfind >= 0:
             wsh = TSHEET.del_worksheet(htmlsh)
             print(f"{wsh} is deleted")
+    print("The HTML worksheets are now deleted!\n")
 
 
 def clear_txt_files():
@@ -275,6 +280,7 @@ def clear_txt_files():
     Clear the txt files out before pulling from sheets begins
     See Credits pynative.com
     """
+    print("Removing any txt files off...")
     path_of_the_directory = 'assets/htmlfiles/'
     for file_name in os.listdir(path_of_the_directory):
         # construct full file path
@@ -282,6 +288,7 @@ def clear_txt_files():
         if os.path.isfile(file):
             print('Deleting file:', file)
             os.remove(file)
+    print("The HTML worksheets are now deleted!\n")
 
 
 def append_multiple_lines(file_name, lines_to_append, ls_type):
@@ -346,13 +353,30 @@ def main():
     """
     Run all program functions
     """
+    while True:
+        user_input = input('Do you wish to proceed (yes/no): ')
+        if user_input.lower() == 'yes':
+            print("Ok, you typed yes, so the program is now executing!")
+            break
+        if user_input.lower() != 'yes':
+            print("Ok, you did not type yes, so now exiting the program!")
+            exit()
+
+    print("The program is running...\n")
     clear_txt_files()
     clear_html_sheets()
     my_list = list_sheets()
     loop_through_worksheets(my_list)
     write_file_back()
+    print("\n")
+    print("The program is finished executing!")
+    print("Google Sheets now has your HTML Table code.")
+    print("Just copy the contents of Cell A1 in the HTML worksheet.")
+    print("Then Paste into matching Wordpress Schedule Post.\n")
 
 
 print("Welcome to HTML Table Builder Automation.")
-print("Building HTML Code from Google Sheets.")
+print("Building HTML Table Code from Google Sheets.")
+print("Running this Automation Program will overwrite, your previous results")
+print("But be assured your Timetable Sheets will remain untouched.")
 main()
