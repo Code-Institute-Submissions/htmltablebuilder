@@ -273,6 +273,20 @@ def write_file_back():
     return True
 
 
+def clear_html_sheets():
+    """
+    Clear the html sheets out before pulling from sheets begins
+    """
+    # Loop through Google Sheets
+    # Check the sheet name for HTML prefix
+    for htmlsh in TSHEET.worksheets():
+        shtitle = htmlsh.title
+        xfind = shtitle.find("HTML")  # look for this in filename
+        if xfind >= 0:
+            wsh = TSHEET.del_worksheet(htmlsh)
+            print(f"{wsh} is deleted")
+
+
 def clear_txt_files():
     """
     Clear the txt files out before pulling from sheets begins
@@ -350,6 +364,7 @@ def main():
     Run all program functions
     """
     clear_txt_files()
+    clear_html_sheets()
     my_list = list_sheets()
     loop_through_worksheets(my_list)
     write_file_back()
