@@ -16,7 +16,7 @@
 <td>12:45</td>
 <td>14:25</td>
 <td>18:10</td>
-<td>21:30</td>
+<td class="thickborder">21:30</td>
 <td>09:30</td>
 <td>12:30</td>
 <td>14:25</td>
@@ -28,7 +28,7 @@
 <td>12:47</td>
 <td>14:27</td>
 <td>18:12</td>
-<td>21:32</td>
+<td class="thickborder">21:32</td>
 <td>09:32</td>
 <td>12:32</td>
 <td>14:27</td>
@@ -40,7 +40,7 @@
 <td>12:55</td>
 <td>–</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>–</td>
 <td>–</td>
 <td>–</td>
@@ -52,7 +52,7 @@
 <td>13:00</td>
 <td>–</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>–</td>
 <td>–</td>
 <td>–</td>
@@ -64,7 +64,7 @@
 <td>13:05</td>
 <td>–</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>–</td>
 <td>–</td>
 <td>–</td>
@@ -76,7 +76,7 @@
 <td>13:10</td>
 <td>–</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>–</td>
 <td>–</td>
 <td>–</td>
@@ -88,7 +88,7 @@
 <td>–</td>
 <td>14:35</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>09:40</td>
 <td>12:40</td>
 <td>14:35</td>
@@ -100,7 +100,7 @@
 <td>13:20</td>
 <td>14:45</td>
 <td>18:30</td>
-<td>21:45</td>
+<td class="thickborder">21:45</td>
 <td>09:50</td>
 <td>12:50</td>
 <td>14:45</td>
@@ -112,7 +112,7 @@
 <td>13:35</td>
 <td>15:00</td>
 <td>18:45</td>
-<td>22:00</td>
+<td class="thickborder">22:00</td>
 <td>10:05</td>
 <td>13:05</td>
 <td>15:00</td>
@@ -124,7 +124,7 @@
 <td>13:45</td>
 <td>15:10</td>
 <td>18:55</td>
-<td>22:10</td>
+<td class="thickborder">22:10</td>
 <td>10:15</td>
 <td>13:15</td>
 <td>15:10</td>
@@ -136,7 +136,7 @@
 <td>13:53</td>
 <td>15:18</td>
 <td>19:03</td>
-<td>22:18</td>
+<td class="thickborder">22:18</td>
 <td>10:23</td>
 <td>13:23</td>
 <td>15:18</td>
@@ -148,7 +148,7 @@
 <td>13:55</td>
 <td>15:20</td>
 <td>19:05</td>
-<td>22:20</td>
+<td class="thickborder">22:20</td>
 <td>10:25</td>
 <td>13:25</td>
 <td>15:20</td>
@@ -160,7 +160,7 @@
 <td>14:00</td>
 <td>15:25</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>10:30</td>
 <td>13:30</td>
 <td>15:25</td>
@@ -172,7 +172,7 @@
 <td>14:05</td>
 <td>15:30</td>
 <td>19:10</td>
-<td>22:25</td>
+<td class="thickborder">22:25</td>
 <td>10:35</td>
 <td>13:35</td>
 <td>15:30</td>
@@ -184,7 +184,7 @@
 <td>–</td>
 <td>–</td>
 <td>–</td>
-<td>–</td>
+<td class="thickborder">–</td>
 <td>–</td>
 <td>–</td>
 <td>–</td>
@@ -196,7 +196,7 @@
 <td>14:20</td>
 <td>15:45</td>
 <td>19:25</td>
-<td>22:40</td>
+<td class="thickborder">22:40</td>
 <td>10:50</td>
 <td>13:50</td>
 <td>15:45</td>

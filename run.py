@@ -51,7 +51,6 @@ def manage_wsheet_data(worksheet):
     table_data = get_all_data(worksheet)
     th_heading_data = get_the_table_header(table_data)
     style_rule = write_table_th(file_name, th_heading_data)
-    print(style_rule)
     td_rows_data = get_the_table_rows(table_data)
     write_table_td(file_name, td_rows_data, style_rule)
     write_table_foot(file_name)
@@ -147,16 +146,40 @@ def write_table_td(txt_file, table_data, row_rule):
     Write to txt file
     """
     thistd = []
+    icount = 1
     for table_row in table_data:
         linex = '<tr>'
         thistd.append(linex)
         for table_time in table_row:
+            # is there a cell border rule
+            if len(row_rule) == 0:
+                linex = f'<td>{table_time}</td>'
+            else:
+                # There is a rule. Does it apply to this cell
+                str_count = str(icount)
+                str_rule = row_rule[0]
+                xfind = str_rule.find(str_count)
+                if xfind >= 0:  # we have a result
+                    # get the rule
+                    xslice = slice(xfind + 1, xfind + 2)  # the cut off
+                    fslice = str_rule[xslice]  # Now we have the rule
+                    # Use the rule
+                    if fslice == "B":  # border left and right
+                        bclass = 'class="thickborder"'
+                    elif fslice == "L":  # border on left
+                        bclass = 'class="thickleft"'
+                    else:  # border on right
+                        bclass = 'class="thickright"'
+                    linex = f'<td {bclass}>{table_time}</td>'
+                else:
+                    linex = f'<td>{table_time}</td>'
             if table_time == "":
                 continue
-            linex = f'<td>{table_time}</td>'
             thistd.append(linex)
+            icount += 1
         linex = '</tr>'
         thistd.append(linex)
+        icount = 1
 
     string_type = "simpleList"
 
@@ -193,9 +216,9 @@ def write_file_back():
 
     for filename in os.listdir(path_of_the_directory):
         fname = os.path.join(path_of_the_directory, filename)
-        xfind = filename.find(":")
-        xslice = slice(12, xfind - 4)
-        fslice = filename[xslice]
+        xfind = filename.find(":")  # look for this in filename
+        xslice = slice(12, xfind - 4)  # now we know the cut off
+        fslice = filename[xslice]  # Now we have the piece we want
         rcheck = f"HTML {fslice}"
         shfound = False
 
