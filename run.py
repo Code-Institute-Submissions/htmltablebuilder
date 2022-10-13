@@ -241,34 +241,17 @@ def write_file_back():
         xslice = slice(12, xfind - 4)  # now we know the cut off
         fslice = filename[xslice]  # Now we have the piece we want
         rcheck = f"HTML {fslice}"
-        shfound = False
 
         text_file = open(fname, encoding='utf-8')
         data = text_file.read()
-        htmlsh = ""
 
-        # Now we have the file name with HTML prefix
-        # Check that we do not have this sheet already
-        # Loop through Google Sheets to see if it exists already
-        for htmlsh in TSHEET.worksheets():
-            httitle = htmlsh.title
-            if httitle == rcheck:
-                # If this is true then we already have this.
-                # So flag that
-                shfound = True
-
-        if shfound:
-            # we are editing not adding the sheet
-            htmlsh.update('A1', data)
-        else:
-            # Go ahead and add the sheet
-            try:
-                wsh = TSHEET.add_worksheet(title=rcheck, rows=20, cols=1)
-
-                wsh.update('A1', data)
-            except ValueError as errnum:
-                print(errnum)
-                return False
+        # Go ahead and add the sheet
+        try:
+            wsh = TSHEET.add_worksheet(title=rcheck, rows=20, cols=1)
+            wsh.update('A1', data)
+        except ValueError as errnum:
+            print(errnum)
+            return False
 
     return True
 
