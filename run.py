@@ -50,9 +50,10 @@ def manage_wsheet_data(worksheet):
     write_table_definition(file_name, txt)
     table_data = get_all_data(worksheet)
     th_heading_data = get_the_table_header(table_data)
-    write_table_th(file_name, th_heading_data)
+    style_rule = write_table_th(file_name, th_heading_data)
+    print(style_rule)
     td_rows_data = get_the_table_rows(table_data)
-    write_table_td(file_name, td_rows_data)
+    write_table_td(file_name, td_rows_data, style_rule)
     write_table_foot(file_name)
 
 
@@ -104,12 +105,17 @@ def write_table_th(txt_file, header_data):
     # So need to work in reverse
 
     thisth = []
+    thisrule = []
 
     linex = '</tr>'
     thisth.append(linex)
 
     for head in reversed(header_data):
         # Check the head
+        if head.find(":") > 0:
+            thisrule.append(head)
+            k = 0
+            continue
         if head == "HEADEND":
             k = 0
             continue
@@ -132,8 +138,10 @@ def write_table_th(txt_file, header_data):
 
     append_multiple_lines(txt_file, thisrvth, string_type)
 
+    return thisrule
 
-def write_table_td(txt_file, table_data):
+
+def write_table_td(txt_file, table_data, row_rule):
     """
     Loop through the td rows
     Write to txt file
@@ -193,6 +201,7 @@ def write_file_back():
 
         text_file = open(fname, encoding='utf-8')
         data = text_file.read()
+        htmlsh = ""
 
         # Now we have the file name with HTML prefix
         # Check that we do not have this sheet already
@@ -289,6 +298,6 @@ def get_the_table_rows(all_data):
     return td_rows
 
 
-# my_list = list_sheets()
-# loop_through_worksheets(my_list)
-write_file_back()
+my_list = list_sheets()
+loop_through_worksheets(my_list)
+# write_file_back()
