@@ -208,22 +208,10 @@ def write_table_foot(txt_file):
     append_multiple_lines(txt_file, table_foot, string_type)
 
 
-def clear_txt_files():
-    """
-    Clear the txt files out before pulling from sheets begins
-    """
-    path_of_the_directory = 'assets/htmlfiles/'
-    for file_name in os.listdir(path_of_the_directory):
-        # construct full file path
-        file = path_of_the_directory + file_name
-        if os.path.isfile(file):
-            print('Deleting file:', file)
-            os.remove(file)
-
-
 def write_file_back():
     """
     Write the file back to Worksheet
+    See Credits pythonpool.com
     """
     path_of_the_directory = 'assets/htmlfiles/'
 
@@ -265,22 +253,25 @@ def write_file_back():
     return True
 
 
-def append_new_line(file_name, text_to_append):
-    """Append given text as a new line at the end of file"""
-    # Open the file in append & read mode ('a+')
-    with open(file_name, "a+", encoding='utf-8') as file_object:
-        # Move read cursor to the start of file.
-        file_object.seek(0)
-        # If file is not empty then append '\n'
-        data = file_object.read(100)
-        if len(data) > 0:
-            file_object.write("\n")
-        # Append text at the end of file
-        file_object.write(text_to_append)
+def clear_txt_files():
+    """
+    Clear the txt files out before pulling from sheets begins
+    See Credits pynative.com
+    """
+    path_of_the_directory = 'assets/htmlfiles/'
+    for file_name in os.listdir(path_of_the_directory):
+        # construct full file path
+        file = path_of_the_directory + file_name
+        if os.path.isfile(file):
+            print('Deleting file:', file)
+            os.remove(file)
 
 
 def append_multiple_lines(file_name, lines_to_append, ls_type):
-    """Append given text lines as a new line at the end of file"""
+    """
+    Append given text lines as a new line at the end of file
+    See Credits thispointer.com
+    """
     # Open the file in append & read mode ('a+')
     with open(file_name, "a+", encoding='utf-8') as file_object:
         append_eol = False
@@ -337,4 +328,4 @@ def get_the_table_rows(all_data):
 clear_txt_files()
 my_list = list_sheets()
 loop_through_worksheets(my_list)
-# write_file_back()
+write_file_back()

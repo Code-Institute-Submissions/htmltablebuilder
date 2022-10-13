@@ -29,3 +29,13 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+Credits:
+
+https://thispointer.com/how-to-append-text-or-lines-to-a-file-in-python/
+
+https://pynative.com/python-delete-files-and-directories/#h-example-remove-file-in-python
+
+https://www.pythonpool.com/python-loop-through-files-in-directory/
+
+
