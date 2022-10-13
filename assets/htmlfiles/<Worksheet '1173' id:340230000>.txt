@@ -3,8 +3,7 @@
 <table id=tabletimeA class="tabletime">
 <tbody>
 <tr>
-<th style="background-color: #1d4d71;">Rockchapel To Mallow
-Monday to Friday</th>
+<th style="background-color: #1d4d71;">Rockchapel To Mallow<br />Monday to Friday</th>
 <th style="background-color: #1d4d71;">Depart</th>
 <th style="background-color: #1d4d71;">Return</th>
 </tr>

@@ -219,7 +219,11 @@ def check_creturn(head_txt):
     decor_head = head_txt
     xfind = decor_head.find('\n')
     if xfind >= 0:
-        print("YepN")
+        xslice = slice(0, xfind)  # now we know the cut off
+        fslice = decor_head[xslice]  # Now we have the piece we want
+        yslice = slice(xfind + 1, len(decor_head))  # now we know the cut off
+        lslice = decor_head[yslice]  # Now we have the piece we want
+        decor_head = f'{fslice}<br />{lslice}'
 
     return decor_head
 

@@ -4,12 +4,9 @@
 <tbody>
 <tr>
 <th style="background-color: #1d4d71;">Charlesfort</th>
-<th style="background-color: #1d4d71;" colspan="4">Monday to Saturday
- Bus 253</th>
-<th style="background-color: #1d4d71;">Monday to Sunday
- Bus 254</th>
-<th style="background-color: #1d4d71;" colspan="3">Sunday & Bank Holidays
- Bus 253</th>
+<th style="background-color: #1d4d71;" colspan="4">Monday to Saturday<br /> Bus 253</th>
+<th style="background-color: #1d4d71;">Monday to Sunday<br /> Bus 254</th>
+<th style="background-color: #1d4d71;" colspan="3">Sunday & Bank Holidays<br /> Bus 253</th>
 </tr>
 <tr>
 <td>Kinsale (Bus Stop in Car Park)</td>
