@@ -325,7 +325,16 @@ def get_the_table_rows(all_data):
     return td_rows
 
 
-clear_txt_files()
-my_list = list_sheets()
-loop_through_worksheets(my_list)
-write_file_back()
+def main():
+    """
+    Run all program functions
+    """
+    clear_txt_files()
+    my_list = list_sheets()
+    loop_through_worksheets(my_list)
+    write_file_back()
+
+
+print("Welcome to HTML Table Builder Automation.")
+print("Building HTML Code from Google Sheets.")
+main()
