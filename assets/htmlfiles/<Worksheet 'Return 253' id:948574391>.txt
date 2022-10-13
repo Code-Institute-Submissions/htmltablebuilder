@@ -5,7 +5,8 @@
 <tr>
 <th style="background-color: #1d4d71;">Kinsale to Clonakilty</th>
 <th style="background-color: #1d4d71;" colspan="5">Monday to Saturday</th>
-<th style="background-color: #1d4d71;" colspan="2">Extra Bus</th>
+<th style="background-color: #1d4d71;" colspan="2">Extra Bus
+Friday & Saturday</th>
 <th style="background-color: #1d4d71;" colspan="3">Sunday & Bank Holidays</th>
 </tr>
 <tr>

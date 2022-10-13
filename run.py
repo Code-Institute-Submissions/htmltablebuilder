@@ -208,6 +208,19 @@ def write_table_foot(txt_file):
     append_multiple_lines(txt_file, table_foot, string_type)
 
 
+def clear_txt_files():
+    """
+    Clear the txt files out before pulling from sheets begins
+    """
+    path_of_the_directory = 'assets/htmlfiles/'
+    for file_name in os.listdir(path_of_the_directory):
+        # construct full file path
+        file = path_of_the_directory + file_name
+        if os.path.isfile(file):
+            print('Deleting file:', file)
+            os.remove(file)
+
+
 def write_file_back():
     """
     Write the file back to Worksheet
@@ -321,6 +334,7 @@ def get_the_table_rows(all_data):
     return td_rows
 
 
+clear_txt_files()
 my_list = list_sheets()
 loop_through_worksheets(my_list)
 # write_file_back()
