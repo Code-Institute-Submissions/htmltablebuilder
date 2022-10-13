@@ -122,11 +122,13 @@ def write_table_th(txt_file, header_data):
             k += 1
             continue
         if k > 0:
+            ck_rt = check_creturn(head)
             linex = '<th style="background-color: #1d4d71;"'
-            linex = linex + f' colspan="{k + 1}">{head}</th>'
+            linex = linex + f' colspan="{k + 1}">{ck_rt}</th>'
             thisth.append(linex)
         else:
-            linex = f'<th style="background-color: #1d4d71;">{head}</th>'
+            ck_rt = check_creturn(head)
+            linex = f'<th style="background-color: #1d4d71;">{ck_rt}</th>'
             thisth.append(linex)
 
         k = 0
@@ -206,6 +208,20 @@ def write_table_foot(txt_file):
     string_type = "complexList"
 
     append_multiple_lines(txt_file, table_foot, string_type)
+
+
+def check_creturn(head_txt):
+    """
+    Check for a carraige return in txt
+    If so amend the text to include html <br />
+    """
+
+    decor_head = head_txt
+    xfind = decor_head.find('\n')
+    if xfind >= 0:
+        print("YepN")
+
+    return decor_head
 
 
 def write_file_back():
