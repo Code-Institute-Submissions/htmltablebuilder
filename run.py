@@ -404,7 +404,7 @@ def main():
     Run all program functions
     """
     while True:
-        user_input = input('Do you wish to proceed (yes/no): ')
+        user_input = input('Do you wish to proceed (yes/no):\n')
         if user_input.lower() == 'yes':
             print("Ok, you typed yes, so the program is now executing!\n")
             break
