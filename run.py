@@ -423,7 +423,7 @@ def main():
     print("Take a look at Google Sheets to view your HTML Table code.")
     print("Just copy the contents of Cell A1 in the HTML worksheet.")
     print("Then Paste into matching Wordpress Schedule Post.")
-    print("Always Check the Wordpress Post in the Browser.\n")
+    print("Always Check the Wordpress Post Result in the Browser.\n")
 
 
 print("Welcome to HTML Table Builder Automation.")

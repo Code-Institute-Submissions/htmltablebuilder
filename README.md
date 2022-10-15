@@ -45,7 +45,8 @@ print("Take a look at Google Sheets to view your HTML Table code.")
 
 The user is instructed on how to proceed with Google sheets and Wordpress.
 print("Just copy the contents of Cell A1 in the HTML worksheet.")
-print("Then Paste into matching Wordpress Schedule Post.\n")
+print("Then Paste into matching Wordpress Schedule Post.")
+print("Always Check the Wordpress Post Result in the Browser.\n")
 
 ## User Stories
 
@@ -123,36 +124,6 @@ The files contents are written back to a newly created worksheet with a HTML pre
 
 ----------------------------------
 
-
-
-Clonakilty Pickup                 |  Kinsale Pickup
-:-----------------:|:-----------------:
-![](assets/images/destinationclonakilty.webp)  |  ![](assets/images/destinationkinsale.webp)
-
-Important Note: The first stop is not included, because a passenger cannot be Picked Up and have as the Destination the same stop.
-
-Clonakilty Pickup Stop                |  Clonakilty available Destination Stops
-:-----------------:|:-----------------:
-![](assets/images/pickstop.webp)  |  ![](assets/images/destinationstops.webp)
-
-Important Note: A Passenger cannot have a Destination that is earlier than or the same as the Pick Up Point on the route.
-The Destination Select responds by only making available Stops that are later than the Pickup stop.
-
-The user can select what passenger type they are like for example "Adult".
-
-The user cans elect what ticket they are looking to purchase like for example "Weekly Ticket".
-
-Passenger                |  Ticket
-:-----------------:|:-----------------:
-![](assets/images/passenger.webp)  |  ![](assets/images/ticket.webp)
-
-Then by clicking the Calculate Fares button the correct fare is calculated based on the user selections and the fare is presented on the form.
-
-![](assets/images/correctfare.webp)
-
-----
-----
-
 # Testing
 
 ## Tests carried out by me.
@@ -172,34 +143,12 @@ Then by clicking the Calculate Fares button the correct fare is calculated based
 
 ## Validator Testing
 
-- HTML:             All pages were passed through the official https://validator.w3.org/ and no errors were found.
-- CSS:              All pages were passed through the official https://jigsaw.w3.org/css-validator/ and no errors were found.
-- Accessibility:    By running the site pages through Lighthouse in Inspect on Chrome I got the following results:
-
-index desktop                |  index mobile
-:-----------------:|:-----------------:
-![](assets/images/desktopindex.webp)  |  ![](assets/images/mobileindex.webp)
-
-single desktop               |  single mobile
-:-----------------:|:-----------------:
-![](assets/images/desktopsingle.webp)  |  ![](assets/images/mobilesingle.webp)
-
-timetable desktop               |  timetable mobile
-:-----------------:|:-----------------:
-![](assets/images/desktoptimetable.webp)  |  ![](assets/images/mobiletimetable.webp)
-
-- Javscript:        All javascript was passed through the official https://jshint.com/ and no errors were found.
-    - jshint did provide these warnings.
-
-    ![](assets/images/jshint.webp) 
-
-Note: As all async functions are operating correctly I assume that I can ignore these warnings.
 
 ----
 
 ## Development Transition
 
-### Initial Wireframe Concept
+### Initial Workflow Concept
  
 
 ## Bug Fixes
@@ -209,32 +158,7 @@ Note: As all async functions are operating correctly I assume that I can ignore 
 - August 28th Problem as index page had a capital letter Index.html.
     - Fix e96c69b2fcd38294c0075cdd66a0dbcddcca3e5a changed to index.html.
 
-- September 1st Problem with json populating Drop Select on Fares Calculation on DOM Load.
-    - Fix 8c56c5f7d2a5d92af624c5578bd6dc4aab10ef4f fixed DOM load to populate Drop.
 
-- September 1st Problem when fare is not found in fares json file for given parameters.
-    - Fix c63f1f924202060d3a47a30489ee205802aa5629 fixed by adding a Try and Err trap.  
-
-- September 1st Change direction event listener not populating Pick and Drop selects properly.
-    - Fix 7cabaa36155e59fed16446a49c6fd3ab3cf9212f fixed event listener code. 
-
-- September 12th Problem with some event listeners firing on pages other than single.
-    - Fix 8c687082c717c84a70b63f1eabd4173f4bafb202 fixed with conditional if. 
-
-- September 12th Problem with closing div on pu-container.
-    - Fix 07f5f0efd84c0c1947c0dba8dbbcd9bd211a6d5f add in closing div.  
-
-- September 12th Problem with stray tag on New Search button on timetable.html.
-    - Fix c6f4f81fdde1768055a3d3ce3221e17a56d076ec remove tag.  
-
-- September 13th Problem Dom loaded not firing select route population by json.
-    - Fix 9b331f9e6cf1cad47f8c6608567760b5a5260fdb add in a window load listener. 
-
-- September 13th Select route population by json needs a conditional so it only fires on index.html.
-    - Fix 015683d84575d2fe6c69a21553ff0076a890b9b4 add in a conditional if. 
-
-- September 20th Fix error in title iframe on index.html.
-    - Fix 4c893f408c664917484bdb347ca265eff02b8729 removed typo. 
 
 ### Unfixed Bugs
 
@@ -244,33 +168,10 @@ Note: As all async functions are operating correctly I assume that I can ignore 
 
 ## Deployment
 
-### Deployment to GitHub
+### Deployment to Heroku
 
-The site is deployed to GitHub pages. 
+The site is deployed to Heroku. 
 
-- Git status check in Gitpod to ensure all is pushed to GitHub.
-- In the GitHub repository under Recent Repositories select [TMartin88/farescalculator](https://github.com/TMartin88/farescalculator)
-- Then Settings.
-- Then Pages.
-- Under Build and Deployment select Deploy from a branch from the Source dropdown list.
-- Pick main and then root from the Branch selection area.
-- Now GitHub Pages displays a link to the live site.
-
-The live link to the site on GitHub is: [Fares Calculator](https://tmartin88.github.io/farescalculator/)
-
-### Deployment to work domain
-
-This project is also deployed on a live domain for the company I work for part-time. The website on this domain is developed by me in Wordpress using Elementor Pro site builder and Custom Posts (basically each route is a custom post).
-
-The goal of this site is to provide an online search platform which allows interested parties such as passengers to search through all of the Local Link Cork routes.
-
-Fares Calculation is simple for most routes but for some high frequency routes like the 253 it is very complicated and difficult to present in a user friendly way. To make an easy to understand interface for passengers really required something like Javascript so that was the inspiration for me to do this project 2 in the way I did it.
-
-This Project is very useful for Local Link Cork for certain Routes like the 253. The code for fares calculator is the same apart from a few tweaks that are wordpress/elementor specific.
-
-This Fares Calculation element will also be applied to other routes similar to the 253 in the Wordpress implementation.
-
-The link to the site live on a domain is: [253-monday-to-sunday](https://locallinkcork.com/schedule/253-monday-to-sunday/)
 
 ----
 
