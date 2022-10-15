@@ -1,6 +1,6 @@
-<figure id=swapperb class="wp-block-table">
+<figure id=swappera class="wp-block-table">
 <div style="overflow-x: auto;">
-<table id=tabletimeB class="tabletime">
+<table id=tabletimeA class="tabletime">
 <tbody>
 <tr>
 <th style="background-color: #1d4d71;">Kinsale to Clonakilty</th>

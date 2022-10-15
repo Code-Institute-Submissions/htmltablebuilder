@@ -1,9 +1,13 @@
 """
-Set up the API connection
+Pull in imports where needed
 """
+import sys
 import os
 import gspread
 from google.oauth2.service_account import Credentials
+
+# Set up the API connection
+# Credit to Anna and Love Sandwiches Project
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -32,18 +36,58 @@ def loop_through_worksheets(ws_list):
     """
     print("Preparing data from worksheets...")
     for wsh in ws_list:
-        wsname = wsh.title
+        wsname = wsh.title  # Get the title of the sheet
         x_find = wsname.find('HTML')
-        if x_find >= 0:
+        if x_find >= 0:  # We wish to ignore any HTML prefix tabs if they exist
             pass
         else:
-            manage_wsheet_data(wsh)
-    print("Data ready to start creating HTML Table code!\n")
+            is_good = check_wsh_validity(wsh)  # Check Worksheet is Valid
+            if is_good:
+                print(f"Writing HTML Table code for {wsh} to file.")
+                manage_wsheet_data(wsh)
+            else:
+                sys.exit(f"{wsh} is not correct. Please Fix it!\n")
+
+    print("HTML Code for worksheets complete!\n")
+
+
+def check_wsh_validity(w_sheet):
+    """
+    Error Trap that this sheet is valid to work on
+    """
+    wh_title = w_sheet.title
+    # First thing is to check: is this is a new blank worksheet
+    if wh_title[0:5].lower() == "sheet":
+        # All worksheets need a Route Number
+        print(f"Rename {wh_title} to a Route Number\n")
+        data_good = False
+    else:
+        data_good = True
+
+    # All worksheets labels should begin with a Route Number
+    # Route Numbers have a minimum of 3 digits
+    if wh_title[0:3].isnumeric():
+        data_good = True
+    else:
+        # All worksheets need a Route Number
+        print(f"Rename {wh_title} to a Route Number\n")
+        data_good = False
+
+    # Check if First Row is empty
+    values_list = w_sheet.row_values(1)
+    if len(values_list) == 0:
+        # All worksheets need a Header
+        print(f"{wh_title} has no Header\n")
+        data_good = False
+    else:
+        data_good = True
+
+    return data_good
 
 
 def manage_wsheet_data(worksheet):
     """
-    Set up the Files to Write to using worksheet as title
+    Set up the Files to Write to using worksheet name as title
     Open the file for writing to
     Get all the data from the worksheet
     """
@@ -65,12 +109,13 @@ def write_table_definition(txt_file, txt):
     """
     table_defs = []
 
+    # Initialise these variables with defaults
     swap = "swappera"
     tid = "tabletimeA"
 
-    x_find = txt.find("Return")
+    x_find = txt.find("Return")  # Look for Return Prefix
 
-    if x_find == 0:
+    if x_find == 0:  # This is a follow on table to first table
         swap = "swapperb"
         tid = "tabletimeB"
 
@@ -96,9 +141,9 @@ def write_table_th(txt_file, header_data):
     We watch out for colspan requirements in the head data
     Write to txt file
     """
-    k = 0
+    k = 0  # This counts blanks
 
-    # Subsequent lines may have a colspan in them
+    # Subsequent lines may have a colspan in them indicated by a blank
     # This is picked up by counting the blanks trailing a header
     # This means we cannot actually write the head to the file until
     # we know how many blanks are trailing it.
@@ -107,40 +152,41 @@ def write_table_th(txt_file, header_data):
     thisth = []
     thisrule = []
 
-    linex = '</tr>'
+    linex = '</tr>'  # because we are working reverse the row close comes first
     thisth.append(linex)
 
     for head in reversed(header_data):
         # Check the head
-        if head.find(":") > 0:
-            thisrule.append(head)
+        if head.find(":") > 0:  # We have found a rule
+            thisrule.append(head)  # Append it to our rule list
             k = 0
             continue
-        if head == "HEADEND":
+        if head == "HEADEND":  # This is the end of the row
             k = 0
             continue
-        if head == "":
+        if head == "":  # We have hit a blank so start counting
             k += 1
             continue
-        if k > 0:
-            ck_rt = check_creturn(head)
+        if k > 0:  # There are blanks so we need a colspan
+            ck_rt = check_creturn(head)  # Is there a new line in header
             linex = '<th style="background-color: #1d4d71;"'
             linex = linex + f' colspan="{k + 1}">{ck_rt}</th>'
             thisth.append(linex)
-        else:
-            ck_rt = check_creturn(head)
+        else:  # There is no colspan
+            ck_rt = check_creturn(head)  # Is there a new line in header
             linex = f'<th style="background-color: #1d4d71;">{ck_rt}</th>'
             thisth.append(linex)
 
         k = 0
 
-    thisrvth = thisth.copy()
-    thisrvth.reverse()
+    thisrvth = thisth.copy()  # Make a copy of list
+    thisrvth.reverse()  # Reverse the list to now read in correct order
+
     string_type = "simpleList"
 
     append_multiple_lines(txt_file, thisrvth, string_type)
 
-    return thisrule
+    return thisrule  # This will be needed to apply to table td rows
 
 
 def write_table_td(txt_file, table_data, row_rule):
@@ -149,7 +195,9 @@ def write_table_td(txt_file, table_data, row_rule):
     Write to txt file
     """
     thistd = []
-    icount = 1
+    icount = 1  # This works instead of index
+    # Index is not reliable in this instance
+
     for table_row in table_data:
         linex = '<tr>'
         thistd.append(linex)
@@ -232,7 +280,7 @@ def write_file_back():
     Write the file back to Worksheet
     See Credits pythonpool.com
     """
-    print("Writing HTML code from file to worksheet...")
+    print("Writing HTML code from files to worksheets...")
 
     path_of_the_directory = 'assets/htmlfiles/'
 
@@ -243,8 +291,10 @@ def write_file_back():
         fslice = filename[xslice]  # Now we have the piece we want
         rcheck = f"HTML {fslice}"
 
+        print(f"Writing HTML code to {rcheck}!")
+
         text_file = open(fname, encoding='utf-8')
-        data = text_file.read()
+        data = text_file.read()  # read the open file
 
         # Go ahead and add the sheet
         try:
@@ -254,7 +304,7 @@ def write_file_back():
             print(errnum)
             return False
 
-    print("HTML Table code is now written from file to worksheet!")
+    print("HTML Table code is now written from files to worksheets!")
 
     return True
 
@@ -265,7 +315,7 @@ def clear_html_sheets():
     """
     # Loop through Google Sheets
     # Check the sheet name for HTML prefix
-    print("Removing any HTML worksheets off of Google sheets...")
+    print("Removing any exisitng HTML worksheets off of Google sheets...")
     for htmlsh in TSHEET.worksheets():
         shtitle = htmlsh.title
         xfind = shtitle.find("HTML")  # look for this in filename
@@ -280,7 +330,7 @@ def clear_txt_files():
     Clear the txt files out before pulling from sheets begins
     See Credits pynative.com
     """
-    print("Removing any txt files off...")
+    print("Removing any existing txt files...")
     path_of_the_directory = 'assets/htmlfiles/'
     for file_name in os.listdir(path_of_the_directory):
         # construct full file path
@@ -288,7 +338,7 @@ def clear_txt_files():
         if os.path.isfile(file):
             print('Deleting file:', file)
             os.remove(file)
-    print("The HTML worksheets are now deleted!\n")
+    print("The txt files are now deleted!\n")
 
 
 def append_multiple_lines(file_name, lines_to_append, ls_type):
@@ -356,11 +406,11 @@ def main():
     while True:
         user_input = input('Do you wish to proceed (yes/no): ')
         if user_input.lower() == 'yes':
-            print("Ok, you typed yes, so the program is now executing!")
+            print("Ok, you typed yes, so the program is now executing!\n")
             break
         if user_input.lower() != 'yes':
             print("Ok, you did not type yes, so now exiting the program!")
-            exit()
+            sys.exit()
 
     print("The program is running...\n")
     clear_txt_files()
@@ -370,9 +420,10 @@ def main():
     write_file_back()
     print("\n")
     print("The program is finished executing!")
-    print("Google Sheets now has your HTML Table code.")
+    print("Take a look at Google Sheets to view your HTML Table code.")
     print("Just copy the contents of Cell A1 in the HTML worksheet.")
-    print("Then Paste into matching Wordpress Schedule Post.\n")
+    print("Then Paste into matching Wordpress Schedule Post.")
+    print("Always Check the Wordpress Post in the Browser.\n")
 
 
 print("Welcome to HTML Table Builder Automation.")
