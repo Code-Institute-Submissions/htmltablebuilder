@@ -4,6 +4,8 @@ LLC denotes Local Link Cork
 -
 ---------------------------
 
+![](assets/images/response.webp)
+
 ## Site Goals
 
 HTML Table Builder is an application developed in Python for LLC staff with no coding abilities whatsoever to auto generate html table code for Timetables populated and edited on Google Sheets.
@@ -31,6 +33,8 @@ Google Sheets              |  Python Utility
 ---------------------------
 
 This is a non GUI application.
+
+![](assets/images/heroku.webp)
 
 The only interaction with the user is a simple yes/no input like this:
 
@@ -93,7 +97,13 @@ The user is instructed on how to proceed with Google sheets and Wordpress:
 
 ## Site Navigation
  
-As there is only one option no navigation is required
+As there is only one option no navigation is required.
+
+## Responsive
+ 
+This non gui application is responsive and looks good on different device screen sizes.
+
+![](assets/images/response.webp)
 
 ===============================================================
 
@@ -192,6 +202,20 @@ The 3 problems that are listed are apparaently in relation to the docker file an
 
 ---------------------------------
 
+## User Testing
+
+When the html code is pasted into the wordpress post.
+
+The user can a make a visual comparison in the browser to ensure the results are as expected.
+
+The user is the designer of the timetable (within given parameters of course).
+
+Because the outcome in wordpress reflects the users Excel sheet design, it is up to the user to decide if the outcome is what they planned.
+
+If not, they can amend the Excel file or Google Sheet and run the application again.
+
+---------------------------------
+
 ## Development Transition
 
 ### Initial Workflow Concept
@@ -243,11 +267,13 @@ The site is deployed to Heroku.
 - Run App
 - Test for errors
 
-----
+![](assets/images/heroku.webp)
+
+---------------------------------
 
 ## Future Features
 
-- To Build a pdf version of the timetable.
+- To build a pdf version of the timetable.
 - To use Zapier Automation to update Wordpress post with table.
 
 ----
