@@ -115,6 +115,8 @@ The user sets up Google Sheets prior to running the application
 
 ![](assets/images/sheets.webp)
 
+https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
+
 The user can setup as many worksheets as they wish. But typically there would be only a few timetables requiring update at any given time.
 
 The user renames the worksheets to match the Route Number.
