@@ -416,11 +416,11 @@ def run_automation(u_name):
         print("Just copy the contents of Cell A1 in the HTML worksheet.")
         print("Then Paste into matching Wordpress Schedule Post.")
         print("Always Check the Wordpress Post Result in the Browser.\n")
-        clear_console()
+        clear_console(3)
 
     if user_input.lower() != 'yes':
         print("Ok, you did not type yes, so returning to Main menu!")
-        clear_console()
+        clear_console(1)
 
     main_menu(u_name)
 
@@ -444,11 +444,11 @@ def clear_html_sheets(u_name):
                 print(f"{wsh} is deleted")
 
         print("The HTML worksheets are now deleted!\n")
-        clear_console()
+        clear_console(1)
 
     if user_input.lower() != 'yes':
         print("Ok, you did not type yes, so returning to Main menu!")
-        clear_console()
+        clear_console(1)
 
     main_menu(u_name)
 
@@ -471,11 +471,11 @@ def clear_all_sheets(u_name):
                 print(f"{wsheet} is deleted")
 
         print("The worksheets are now deleted!\n")
-        clear_console()
+        clear_console(1)
 
     if user_input.lower() != 'yes':
         print("Ok, you did not type yes, so returning to Main menu!")
-        clear_console()
+        clear_console(1)
 
     main_menu(u_name)
 
@@ -503,7 +503,7 @@ def main_menu(u_name):
         run_automation(u_name)
     elif user_option == "Q" or user_option == "q":
         print("Quitting")
-        clear_console()
+        clear_console(1)
         sys.exit()
 
 
@@ -548,18 +548,18 @@ def check_password(u_name, p_word):
 
     if LOGGEDIN is True:
         print("Login Successful\n")
-        clear_console()
+        clear_console(1)
 
     else:
         print("Sorry username or password is incorrect\n")
-        clear_console()
+        clear_console(1)
 
     return LOGGEDIN
 
 
-def clear_console():
+def clear_console(how_long):
     # Waiting for 1 second to clear the screen
-    sleep(2)
+    sleep(how_long)
 
     # Clearing the Screen
     os.system('clear')

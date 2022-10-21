@@ -290,6 +290,10 @@ The site is deployed to Heroku.
 
 ![](assets/images/heroku.webp)
 
+Please click this link to see it in Heroku
+
+https://html-table-builder.herokuapp.com/
+
 ---------------------------------
 
 ## Future Features
