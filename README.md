@@ -111,9 +111,11 @@ This non gui application is responsive and looks good on different device screen
 
 ===============================================================
 
-### Sheets data and GDPR
+### Google Sheets data and GDPR
 
 - Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use timetable data.
+
+You can view the Sheet here at this link:
 
 https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
 
@@ -124,6 +126,8 @@ This Sheet is on my personal Google account.
 The Timetable data is already in the public domain.
 
 ------------------------------------
+
+### Google Sheets Usage
 
 The user sets up Google Sheets prior to running the application
 
@@ -137,7 +141,7 @@ Where the timetable is an amalgamation of several routes then the user titles th
 
 ![](assets/images/multipleexcel.webp)
 
-The Basic Rules for Excel Template are provided in the Rules tab. 
+The Basic Rules for Excel Template are provided in the Rules tab in the users Excel file.
 
 ![](assets/images/rulesexcel.webp)
 
@@ -163,6 +167,9 @@ Google Sheets                     |  Returned HTML                   |  Live on 
 ![](assets/images/python.webp)
 
 ----------------------------------
+
+The default username is: admin
+The default password is: sesame
 
 ### Overview
 

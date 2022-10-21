@@ -4,6 +4,7 @@ Pull in imports where needed
 import csv
 import sys
 import os
+from time import sleep
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -20,6 +21,8 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 TSHEET = GSPREAD_CLIENT.open('html_table_builder')
+
+LOGGEDIN = ""
 
 
 def list_sheets():
@@ -39,7 +42,10 @@ def loop_through_worksheets(ws_list):
     for wsh in ws_list:
         wsname = wsh.title  # Get the title of the sheet
         x_find = wsname.find('HTML')
-        if x_find >= 0:  # We wish to ignore any HTML prefix tabs if they exist
+        y_find = wsname.find('Rules')
+        if x_find >= 0:  # We wish to ignore any tabs with a HTML prefix
+            pass
+        elif y_find >= 0:  # We wish to ignore the Rules Tab
             pass
         else:
             is_good = check_wsh_validity(wsh)  # Check Worksheet is Valid
@@ -310,38 +316,6 @@ def write_file_back():
     return True
 
 
-def clear_html_sheets():
-    """
-    Clear the html sheets out before pulling from sheets begins
-    """
-    # Loop through Google Sheets
-    # Check the sheet name for HTML prefix
-    print("Removing any exisitng HTML worksheets off of Google sheets...")
-    for htmlsh in TSHEET.worksheets():
-        shtitle = htmlsh.title
-        xfind = shtitle.find("HTML")  # look for this in filename
-        if xfind >= 0:
-            wsh = TSHEET.del_worksheet(htmlsh)
-            print(f"{wsh} is deleted")
-    print("The HTML worksheets are now deleted!\n")
-
-
-def clear_txt_files():
-    """
-    Clear the txt files out before pulling from sheets begins
-    See Credits pynative.com
-    """
-    print("Removing any existing txt files...")
-    path_of_the_directory = 'assets/htmlfiles/'
-    for file_name in os.listdir(path_of_the_directory):
-        # construct full file path
-        file = path_of_the_directory + file_name
-        if os.path.isfile(file):
-            print('Deleting file:', file)
-            os.remove(file)
-    print("The txt files are now deleted!\n")
-
-
 def append_multiple_lines(file_name, lines_to_append, ls_type):
     """
     Append given text lines as a new line at the end of file
@@ -404,56 +378,156 @@ def main():
     """
     Run all program functions
     """
-    check_password("Tiernan")
+    login_user()
 
+
+def delete_txt_files():
     """
-    while True:
-        user_input = input('Do you wish to proceed (yes/no):\n')
-        if user_input.lower() == 'yes':
-            print("Ok, you typed yes, so the program is now executing!\n")
-            break
-        if user_input.lower() != 'yes':
-            print("Ok, you did not type yes, so now exiting the program!")
-            sys.exit()
-
-    print("The program is running...\n")
-    clear_txt_files()
-    clear_html_sheets()
-    my_list = list_sheets()
-    loop_through_worksheets(my_list)
-    write_file_back()
-    print("\n")
-    print("The program is finished executing!")
-    print("Take a look at Google Sheets to view your HTML Table code.")
-    print("Just copy the contents of Cell A1 in the HTML worksheet.")
-    print("Then Paste into matching Wordpress Schedule Post.")
-    print("Always Check the Wordpress Post Result in the Browser.\n")
-    print("But be assured your Timetable Sheets will remain untouched.")
+    Delete the txt files out before pulling from sheets begins
+    See Credits pynative.com
     """
+    print("Removing any existing txt files...")
+    path_of_the_directory = 'assets/htmlfiles/'
+    for file_name in os.listdir(path_of_the_directory):
+        # construct full file path
+        file = path_of_the_directory + file_name
+        if os.path.isfile(file):
+            print('Deleting file:', file)
+            os.remove(file)
+    print("The txt files are now deleted!\n")
 
 
-def menu():
-    print("Welcome to HTML Table Builder Automation.")
-    print("Building HTML Table Code from Google Sheets.")
+def run_automation(u_name):
+    """
+    This function runs the automated html generation
+    """
+    print("This will overwrite, your previous HTML results!")
+    print("This will not overwrite, your Worksheets!")
+    user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
+    if user_input.lower() == 'yes':
+        print("Ok, you typed yes, so the program is now executing!\n")
+        delete_txt_files()
+        my_list = list_sheets()
+        loop_through_worksheets(my_list)
+        write_file_back()
+        print("\n")
+        print("The program is finished executing!")
+        print("Take a look at Google Sheets to view your HTML Table code.")
+        print("Just copy the contents of Cell A1 in the HTML worksheet.")
+        print("Then Paste into matching Wordpress Schedule Post.")
+        print("Always Check the Wordpress Post Result in the Browser.\n")
+        clear_console()
 
-    user_choice = input("""
-                             L: Login
-                             Q: Quit
+    if user_input.lower() != 'yes':
+        print("Ok, you did not type yes, so returning to Main menu!")
+        clear_console()
 
-                             Please enter your choice here: """)
+    main_menu(u_name)
+
+
+def clear_html_sheets(u_name):
+    """
+    Clear all of the html worksheets
+    """
+    print("This will remove all of the HTML worksheets\n")
+    user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
+    if user_input.lower() == 'yes':
+        print("Ok, you typed yes, so the program is now executing!\n")
+        print("Removing HTML worksheets off of Google sheets...")
+        # Loop through Google Sheets
+        # Check the sheet name for HTML prefix
+        for htmlsh in TSHEET.worksheets():
+            shtitle = htmlsh.title
+            xfind = shtitle.find("HTML")  # look for this in filename
+            if xfind >= 0:
+                wsh = TSHEET.del_worksheet(htmlsh)
+                print(f"{wsh} is deleted")
+
+        print("The HTML worksheets are now deleted!\n")
+        clear_console()
+
+    if user_input.lower() != 'yes':
+        print("Ok, you did not type yes, so returning to Main menu!")
+        clear_console()
+
+    main_menu(u_name)
+
+
+def clear_all_sheets(u_name):
+    """
+    Clear all of the worksheets
+    """
+    print("This will remove all of the worksheets other than Rules\n")
+    user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
+    if user_input.lower() == 'yes':
+        print("Ok, you typed yes, so the program is now executing!\n")
+        print("Removing worksheets off of Google sheets...")
+        # Loop through Google Sheets
+        for wsheet in TSHEET.worksheets():
+            if wsheet.title == "Rules":
+                pass
+            else:
+                wsheet = TSHEET.del_worksheet(wsheet)
+                print(f"{wsheet} is deleted")
+
+        print("The worksheets are now deleted!\n")
+        clear_console()
+
+    if user_input.lower() != 'yes':
+        print("Ok, you did not type yes, so returning to Main menu!")
+        clear_console()
+
+    main_menu(u_name)
+
+
+def main_menu(u_name):
+    """
+    This is the main menu presented ot logged in users
+    """
+    print(f"Welcome {u_name} to HTML Table Builder Automation.")
+    print("Building HTML Table Code from Google Sheets.\n")
+
+    user_option = input("""
+        C: Clear All Worksheets
+        H: Clear HTML Worksheets
+        R: Run HTML Automation
+        Q: Quit
+
+        Please enter your choice here: """)
+
+    if user_option == "C" or user_option == "c":
+        clear_all_sheets(u_name)
+    elif user_option == "H" or user_option == "h":
+        clear_html_sheets(u_name)
+    elif user_option == "R" or user_option == "r":
+        run_automation(u_name)
+    elif user_option == "Q" or user_option == "q":
+        print("Quitting")
+        clear_console()
+        sys.exit()
 
 
 def login_user():
     """
     This function logs in users with the correct password
     """
-    # Check is the user logged in already
-
+    print("Welcome to HTML Table Builder Automation.")
+    print(
+        "Please Login!")
     # Ask the user for the password
-    print("Automation Program will overwrite,your previous results")
+    u_name = input(
+        "Please enter your username:\n")
+    p_word = input(
+        "Please enter your password:\n")
+
+    LOGGEDIN = check_password(u_name.lower(), p_word.lower())
+
+    if LOGGEDIN is True:
+        # Then we are good to go show menu
+        main_menu(u_name.capitalize())
 
 
-def check_password(p_word):
+def check_password(u_name, p_word):
     """
     Check the password is valid
     """
@@ -464,7 +538,31 @@ def check_password(p_word):
     with open(fname) as f_lines:
         lines_list = csv.reader(f_lines, delimiter=',')
         for line in lines_list:
-            print(line)
+            if line[0] == u_name and line[1] == p_word:
+                # This is a valid login
+                LOGGEDIN = True
+                break
+            else:
+                # This is not a valid login
+                LOGGEDIN = False
+
+    if LOGGEDIN is True:
+        print("Login Successful\n")
+        clear_console()
+
+    else:
+        print("Sorry username or password is incorrect\n")
+        clear_console()
+
+    return LOGGEDIN
+
+
+def clear_console():
+    # Waiting for 1 second to clear the screen
+    sleep(2)
+
+    # Clearing the Screen
+    os.system('clear')
 
 
 main()

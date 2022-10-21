@@ -116,15 +116,6 @@
 <td class="thickright">10:35</td>
 <td>11:35</td>
 </tr>
-<tr>
-</tr>
-<tr>
-</tr>
-<tr>
-</tr>
-<tr>
-<td> </td>
-</tr>
 </tbody>
 </table>
 </div>
