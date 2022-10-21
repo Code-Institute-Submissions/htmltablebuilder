@@ -416,7 +416,7 @@ def run_automation(u_name):
         print("Just copy the contents of Cell A1 in the HTML worksheet.")
         print("Then Paste into matching Wordpress Schedule Post.")
         print("Always Check the Wordpress Post Result in the Browser.\n")
-        clear_console(5)
+        clear_console(10)
 
     if user_input.lower() != 'yes':
         print("Ok, you did not type yes, so returning to Main menu!")
