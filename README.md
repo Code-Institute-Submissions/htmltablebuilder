@@ -111,11 +111,23 @@ This non gui application is responsive and looks good on different device screen
 
 ===============================================================
 
+### Sheets data and GDPR
+
+- Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use timetable data.
+
+https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
+
+This Sheet is Shared and visible to anyone with a link.
+
+This Sheet is on my personal Google account.
+
+The Timetable data is already in the public domain.
+
+------------------------------------
+
 The user sets up Google Sheets prior to running the application
 
 ![](assets/images/sheets.webp)
-
-https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
 
 The user can setup as many worksheets as they wish. But typically there would be only a few timetables requiring update at any given time.
 
@@ -310,10 +322,6 @@ Credit to pythonpool for code ideas on looping through files in a directory.
 https://www.pythonpool.com/python-loop-through-files-in-directory/
 
 Credit to Anna Greaves and Love Sandwiches for Connecting to Google Sheets idea and execution.
-
-### Sheets data
-
-- Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use timetable data.
 
 ----
 

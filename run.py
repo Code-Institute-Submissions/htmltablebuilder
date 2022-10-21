@@ -1,6 +1,7 @@
 """
 Pull in imports where needed
 """
+import csv
 import sys
 import os
 import gspread
@@ -403,6 +404,9 @@ def main():
     """
     Run all program functions
     """
+    check_password("Tiernan")
+
+    """
     while True:
         user_input = input('Do you wish to proceed (yes/no):\n')
         if user_input.lower() == 'yes':
@@ -424,10 +428,43 @@ def main():
     print("Just copy the contents of Cell A1 in the HTML worksheet.")
     print("Then Paste into matching Wordpress Schedule Post.")
     print("Always Check the Wordpress Post Result in the Browser.\n")
+    print("But be assured your Timetable Sheets will remain untouched.")
+    """
 
 
-print("Welcome to HTML Table Builder Automation.")
-print("Building HTML Table Code from Google Sheets.")
-print("Running this Automation Program will overwrite, your previous results")
-print("But be assured your Timetable Sheets will remain untouched.")
+def menu():
+    print("Welcome to HTML Table Builder Automation.")
+    print("Building HTML Table Code from Google Sheets.")
+
+    user_choice = input("""
+                             L: Login
+                             Q: Quit
+
+                             Please enter your choice here: """)
+
+
+def login_user():
+    """
+    This function logs in users with the correct password
+    """
+    # Check is the user logged in already
+
+    # Ask the user for the password
+    print("Automation Program will overwrite,your previous results")
+
+
+def check_password(p_word):
+    """
+    Check the password is valid
+    """
+    path_of_the_directory = 'assets/registered/'
+    filename = "users.csv"
+    fname = os.path.join(path_of_the_directory, filename)
+
+    with open(fname) as f_lines:
+        lines_list = csv.reader(f_lines, delimiter=',')
+        for line in lines_list:
+            print(line)
+
+
 main()
