@@ -381,10 +381,57 @@ def main():
     login_user()
 
 
-def delete_txt_files():
+def clear_all_sheets(u_name):
+    """
+    Clear all of the worksheets
+    """
+    print("This will remove all of the worksheets other than Rules\n")
+    user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
+    if user_input.lower() == 'yes':
+        print("Ok, you typed yes, so the program is now executing!\n")
+        print("Removing worksheets off of Google sheets...")
+        # Loop through Google Sheets
+        for wsheet in TSHEET.worksheets():
+            if wsheet.title == "Rules":
+                pass
+            else:
+                wsheet = TSHEET.del_worksheet(wsheet)
+                print(f"{wsheet} is deleted")
+
+        print("The worksheets are now deleted!\n")
+        clear_console(1)
+
+    if user_input.lower() != 'yes':
+        print("Ok, you did not type yes, so returning to Main menu!")
+        clear_console(1)
+
+    main_menu(u_name)
+
+
+def delete_txt_files(u_name):
     """
     Delete the txt files out before pulling from sheets begins
     See Credits pynative.com
+    """
+    print("This will remove all of the HTML Text Files\n")
+    if u_name == "autom":
+        deltxt_loop()
+    else:
+        user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
+        if user_input.lower() == 'yes':
+            print("Ok, you typed yes, so the program is now executing!\n")
+            deltxt_loop()
+        else:
+            print("Ok, you did not type yes, so returning to Main menu!")
+
+        clear_console(1)
+
+        main_menu(u_name)
+
+
+def deltxt_loop():
+    """
+    Loop through the txt files deleting them
     """
     print("Removing any existing txt files...")
     path_of_the_directory = 'assets/htmlfiles/'
@@ -394,36 +441,8 @@ def delete_txt_files():
         if os.path.isfile(file):
             print('Deleting file:', file)
             os.remove(file)
+
     print("The txt files are now deleted!\n")
-
-
-def run_automation(u_name):
-    """
-    This function runs the automated html generation
-    """
-    print("This will overwrite, your previous HTML results!")
-    print("This will not overwrite, your Worksheets!")
-    user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
-    if user_input.lower() == 'yes':
-        print("Ok, you typed yes, so the program is now executing!\n")
-        delete_txt_files()
-        clear_html_sheets("autom")
-        my_list = list_sheets()
-        loop_through_worksheets(my_list)
-        write_file_back()
-        print("\n")
-        print("The program is finished executing!")
-        print("Take a look at Google Sheets to view your HTML Table code.")
-        print("Just copy the contents of Cell A1 in the HTML worksheet.")
-        print("Then Paste into matching Wordpress Schedule Post.")
-        print("Always Check the Wordpress Post Result in the Browser.\n")
-        clear_console(10)
-
-    if user_input.lower() != 'yes':
-        print("Ok, you did not type yes, so returning to Main menu!")
-        clear_console(1)
-
-    main_menu(u_name)
 
 
 def clear_html_sheets(u_name):
@@ -468,25 +487,27 @@ def clear_html_sheets(u_name):
         main_menu(u_name)
 
 
-def clear_all_sheets(u_name):
+def run_automation(u_name):
     """
-    Clear all of the worksheets
+    This function runs the automated html generation
     """
-    print("This will remove all of the worksheets other than Rules\n")
+    print("This will overwrite, your previous HTML results!")
+    print("This will not overwrite, your Worksheets!")
     user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
     if user_input.lower() == 'yes':
         print("Ok, you typed yes, so the program is now executing!\n")
-        print("Removing worksheets off of Google sheets...")
-        # Loop through Google Sheets
-        for wsheet in TSHEET.worksheets():
-            if wsheet.title == "Rules":
-                pass
-            else:
-                wsheet = TSHEET.del_worksheet(wsheet)
-                print(f"{wsheet} is deleted")
-
-        print("The worksheets are now deleted!\n")
-        clear_console(1)
+        delete_txt_files("autom")
+        clear_html_sheets("autom")
+        my_list = list_sheets()
+        loop_through_worksheets(my_list)
+        write_file_back()
+        print("\n")
+        print("The program is finished executing!")
+        print("Take a look at Google Sheets to view your HTML Table code.")
+        print("Just copy the contents of Cell A1 in the HTML worksheet.")
+        print("Then Paste into matching Wordpress Schedule Post.")
+        print("Always Check the Wordpress Post Result in the Browser.\n")
+        clear_console(10)
 
     if user_input.lower() != 'yes':
         print("Ok, you did not type yes, so returning to Main menu!")
@@ -504,6 +525,7 @@ def main_menu(u_name):
 
     user_option = input("""
         C: Clear All Worksheets
+        D: Delete All HTML Text Files
         H: Clear HTML Worksheets
         R: Run HTML Automation
         Q: Quit
@@ -512,6 +534,8 @@ def main_menu(u_name):
 
     if user_option == "C" or user_option == "c":
         clear_all_sheets(u_name)
+    elif user_option == "D" or user_option == "d":
+        delete_txt_files(u_name)
     elif user_option == "H" or user_option == "h":
         clear_html_sheets(u_name)
     elif user_option == "R" or user_option == "r":
