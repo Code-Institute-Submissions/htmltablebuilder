@@ -29,9 +29,13 @@ def list_sheets():
     """
     Get List of WorkSheets in Sheet
     """
-    worksheet_list = TSHEET.worksheets()
 
-    return worksheet_list
+    try:
+        worksheet_list = TSHEET.worksheets()
+    except ValueError:
+        print(f"Google Sheets Issue {ValueError()}")
+    finally:
+        return worksheet_list
 
 
 def loop_through_worksheets(ws_list):
@@ -63,7 +67,7 @@ def check_wsh_validity(w_sheet):
     Error Trap that this sheet is valid to work on
     """
     wh_title = w_sheet.title
-    # First thing is to check: is this is a new blank worksheet
+    # First thing is to check: has the user forgot to rename worksheet
     if wh_title[0:5].lower() == "sheet":
         # All worksheets need a Route Number
         print(f"Rename {wh_title} to a Route Number\n")
