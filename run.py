@@ -451,40 +451,35 @@ def clear_html_sheets(u_name):
     """
     print("This will remove all of the HTML worksheets\n")
     if u_name == "autom":
-        print("Removing HTML worksheets off of Google sheets...")
-        # Loop through Google Sheets
-        # Check the sheet name for HTML prefix
-        for htmlsh in TSHEET.worksheets():
-            shtitle = htmlsh.title
-            xfind = shtitle.find("HTML")  # look for this in filename
-            if xfind >= 0:
-                wsh = TSHEET.del_worksheet(htmlsh)
-                print(f"{wsh} is deleted")
-
-        print("The HTML worksheets are now deleted!\n")
-        clear_console(1)
+        delhtml_loop()
     else:
         user_input = input(f'{u_name}: Do you wish to proceed (yes/no):\n')
         if user_input.lower() == 'yes':
             print("Ok, you typed yes, so the program is now executing!\n")
-            print("Removing HTML worksheets off of Google sheets...")
-            # Loop through Google Sheets
-            # Check the sheet name for HTML prefix
-            for htmlsh in TSHEET.worksheets():
-                shtitle = htmlsh.title
-                xfind = shtitle.find("HTML")  # look for this in filename
-                if xfind >= 0:
-                    wsh = TSHEET.del_worksheet(htmlsh)
-                    print(f"{wsh} is deleted")
-
-            print("The HTML worksheets are now deleted!\n")
-            clear_console(1)
-
-        if user_input.lower() != 'yes':
+            delhtml_loop()
+        else:
             print("Ok, you did not type yes, so returning to Main menu!")
-            clear_console(1)
+
+        clear_console(1)
 
         main_menu(u_name)
+
+
+def delhtml_loop():
+    """
+    Loop through all the HTML worksheets deleting them
+    """
+    print("Removing HTML worksheets off of Google sheets...")
+    # Loop through Google Sheets
+    # Check the sheet name for HTML prefix
+    for htmlsh in TSHEET.worksheets():
+        shtitle = htmlsh.title
+        xfind = shtitle.find("HTML")  # look for this in filename
+        if xfind >= 0:
+            wsh = TSHEET.del_worksheet(htmlsh)
+            print(f"{wsh} is deleted")
+
+    print("The HTML worksheets are now deleted!\n")
 
 
 def run_automation(u_name):
