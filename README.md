@@ -8,7 +8,15 @@ LLC denotes Local Link Cork
 
 ## Site Goals
 
-HTML Table Builder is an application developed in Python for LLC staff with no coding abilities whatsoever to auto generate html table code for Timetables populated and edited on Google Sheets.
+HTML Table Builder is an application developed in Python for LLC Timetable Management staff.
+
+These staff members typically have no coding abilities whatsoever.
+
+This application is designed to auto generate html table code for [Timetables](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing) stored on Google Sheets.
+
+
+<mark>Note: See GDPR and Privacy Section</mark>
+
 
 This application is an assist for LLC staff engaged in Timetable Management to easily publish timetable revisions to the LLC website.   
 
@@ -16,11 +24,11 @@ HTML Table Builder is useful by allowing LLC staff to manipulate and design time
 
 Within some pre-defined parameters, they can design the timetable layout to accommodate peculiarities on some routes.
 
-Excel is a familiar environment for LLC staff to work with. 
+Excel is a familiar environment for LLC staff to work with and a lot of the timetable data is held in excel sheets. 
 
 Google Sheets has a lot of similarities and of course LLC staff can copy and paste their Excel creations to Google Sheets.
 
-Important Note: All references to Local Link are for Local Link Cork only.
+<mark>Important Note: All references to Local Link are for Local Link Cork only.</mark>
 
 Google Sheets              |  Python Utility
 :-----------------:|:-----------------:
@@ -121,13 +129,18 @@ https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfc
 
 This Sheet is Shared and visible to anyone with a link.
 
-This Sheet is on my personal Google account.
+This Sheet is on my personal Google account and the data is not sensitive.
 
 The Timetable data is already in the public domain.
 
 ------------------------------------
 
 ### Google Sheets Usage
+
+
+Base Data to copy and paste from for testing
+
+https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing
 
 The user sets up Google Sheets prior to running the application
 
