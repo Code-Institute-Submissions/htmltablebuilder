@@ -480,8 +480,17 @@ HTML Design                         |  Wordpress Blocks Basic
  
 ### Solved Bugs
 
+- October 12th 2022 Looping through header error colspan count wrong
+    - Fix d5f826cfade97fa0f427bcf71ad71f15b8e42d36 reverse header data
+
 - October 12th 2022 Closing row <\tr> missing on th heading
-    - Fix fa901e13615e548db4457b6e1cfcaa628981f863 tagi s now in place.
+    - Fix fa901e13615e548db4457b6e1cfcaa628981f863 tag is now in place.
+
+- October 13th 2022 border rules not working correctly
+    - Fix 23167325d5e54eea7128b125e2041a8f5337fa16 improved function to manage rules.
+
+- October 15th 2022 sheet errors problem
+    - Fix 62b6fee4d708f5946810424a4479d533b0a040e3 create function to validate sheets.
 
 ### Unfixed Bugs
 
