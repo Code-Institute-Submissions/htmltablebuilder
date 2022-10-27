@@ -555,9 +555,9 @@ def login_user():
     p_word = input(
         "Please enter your password:\n")
 
-    LOGGEDIN = check_password(u_name.lower(), p_word.lower())
+    logged_in = check_password(u_name.lower(), p_word.lower())
 
-    if LOGGEDIN is True:
+    if logged_in is True:
         # Then we are good to go show menu
         main_menu(u_name.capitalize())
 
@@ -575,13 +575,13 @@ def check_password(u_name, p_word):
         for line in lines_list:
             if line[0] == u_name and line[1] == p_word:
                 # This is a valid login
-                LOGGEDIN = True
+                logged_in = True
                 break
             else:
                 # This is not a valid login
-                LOGGEDIN = False
+                logged_in = False
 
-    if LOGGEDIN is True:
+    if logged_in is True:
         print("Login Successful\n")
         clear_console(1)
 
@@ -589,11 +589,13 @@ def check_password(u_name, p_word):
         print("Sorry username or password is incorrect\n")
         clear_console(1)
 
-    return LOGGEDIN
+    return logged_in
 
 
 def clear_console(how_long):
-    # Waiting for 1 second to clear the screen
+    """
+    This function clears the console after a specified time
+    """
     sleep(how_long)
 
     # Clearing the Screen
