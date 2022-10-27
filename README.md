@@ -219,25 +219,31 @@ For example:
 
 ------------------------------------
 
-Example 253
-  
-Google Sheets                     |  Returned HTML                   |  Live on Browser
-:--------------------------------:|:--------------------------------:|:-----------------------------------:
-![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
+# Application
 
----------------------------------
+This is a non GUI application.
 
-## Application
+## Login
 
+![](assets/images/herokuapp.webp)
 
-![](assets/images/python.webp)
+The initial interaction with the user is a simple login like this:
 
-----------------------------------
+Please enter your username:
+
+Please enter your password:
 
 The default username is: admin
 The default password is: sesame
 
-### Overview
+## Main Menu
+
+Once logged in the user is presented with a Main Menu:
+
+![](assets/images/herokuinterface.webp)
+
+### Clear All Worksheets
+
 
 
 While the application is running the user is kept informed of progress with messages like this:
@@ -281,6 +287,14 @@ When all elements of the table html code have been compiled the txt file is then
 The files contents are written back to a newly created worksheet with a HTML prefix and the Route number.
 
 Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code.
+
+Example 253
+  
+Google Sheets                     |  Returned HTML                   |  Live on Browser
+:--------------------------------:|:--------------------------------:|:-----------------------------------:
+![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
+
+---------------------------------
 
 ----------------------------------
 
