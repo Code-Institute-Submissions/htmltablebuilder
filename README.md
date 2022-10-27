@@ -4,7 +4,6 @@ LLC denotes Local Link Cork
 -
 ---------------------------
 
-![](assets/images/response.webp)
 
 ## Site Goals
 
@@ -78,8 +77,8 @@ The user also has access to two Google Sheets:
 
 ---------------------------
 
-
 ## User Stories
+---
 
 - Users who have no programming skills need to be able to publish LLC timetables to the website.
     - This application allows them to work without HTML or CSS skills, as the application makes the html for them, then using copy and paste skills they can publish to wordpress. The styling of the timetable is managed within the wordpress template design. 
@@ -106,30 +105,25 @@ This non gui application is responsive and looks good on different device screen
 
 ![](assets/images/response.webp)
 
-===============================================================
+--------------------------------
 
-### How it works
-
-===============================================================
-
-### Google Sheets data and GDPR
+# Google Sheets data and GDPR
 
 - Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use timetable data.
 
-You can view the Sheet here at this link:
+- The Sheets are Shared and visible to anyone with a link.
 
-https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
+- The Sheets are on my personal Google account and the data is not sensitive.
 
-This Sheet is Shared and visible to anyone with a link.
-
-This Sheet is on my personal Google account and the data is not sensitive.
-
-The Timetable data is already in the public domain.
+- The Timetable data is already in the public domain.
 
 ------------------------------------
 
-### Google Sheets Usage
+# How it works
+---
 
+## Google Sheets Usage
+---
 
 Base Data to copy and paste from for testing
 
