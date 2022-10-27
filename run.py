@@ -22,8 +22,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 TSHEET = GSPREAD_CLIENT.open('html_table_builder')
 
-LOGGEDIN = ""
-
 
 def list_sheets():
     """
@@ -572,7 +570,7 @@ def check_password(u_name, p_word):
     filename = "users.csv"
     fname = os.path.join(path_of_the_directory, filename)
 
-    with open(fname) as f_lines:
+    with open(fname, encoding='utf-8') as f_lines:
         lines_list = csv.reader(f_lines, delimiter=',')
         for line in lines_list:
             if line[0] == u_name and line[1] == p_word:
