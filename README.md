@@ -24,7 +24,7 @@ HTML Table Builder is useful by allowing LLC staff to manipulate and design time
 
 Within some pre-defined parameters, they can design the timetable layout to accommodate peculiarities on some routes.
 
-Excel is a familiar environment for LLC staff to work with and a lot of the timetable data is held in excel sheets. 
+Excel is a familiar environment for LLC staff to work with and a lot of the timetable data is currently held in excel sheets. 
 
 Google Sheets has a lot of similarities and of course LLC staff can copy and paste their Excel creations to Google Sheets.
 
@@ -42,23 +42,42 @@ Google Sheets              |  Python Utility
 
 This is a non GUI application.
 
-![](assets/images/heroku.webp)
+![](assets/images/herokuapp.webp)
 
-The only interaction with the user is a simple yes/no input like this:
+The initial interaction with the user is a simple login like this:
 
-'Do you wish to proceed (yes/no):
+Please enter your username:
 
-This gets verification from the user whether to proceed or not in running the application.
+Please enter your password:
+
+---------------------------
+
+Once logged in the user is presented with a Main Menu:
+
+![](assets/images/herokuinterface.webp)
 
 ---------------------------
 
-The user is advised of the consequences of running the application like this:
+The user also has access to two Google Sheets:
 
-'Running this Automation Program will overwrite, your previous results'
+1. html_table_builder
 
-'But be assured your Timetable Sheets will remain untouched.'
+<mark>This is the Sheet that the Application interacts with</mark>
+
+![](assets/images/sheetblank.webp)
+
+
+2. Timetables
+
+<mark>This is the Sheet that Contains all the Timetable worksheets</mark>
+
+![](assets/images/timetables.webp)
+
+
+<mark>Note: Both Sheets have a Rules Tab which is for reference only</mark>
 
 ---------------------------
+
 
 While the application is running the user is kept informed of progress with messages like this:
 
