@@ -242,7 +242,46 @@ Once logged in the user is presented with a Main Menu:
 
 ![](assets/images/herokuinterface.webp)
 
-### Clear All Worksheets
+### C. Clear All Worksheets
+
+This deletes all of the worksheets in html_table_builder with the exception of Rules.
+
+This allows the user to go to a reset situation.
+
+The User is advised that 'This will remove all of the worksheets other than Rules'
+
+The user is challenged to input yes if they wish to proceed.
+
+Select C to Clear Sheets             |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/clearsheets.webp)  |  ![](assets/images/cleared.webp)
+
+The user is advised that the worksheets are now deleted!
+
+Then the interface returns to the main menu after 1 second.
+
+### D. Delete All HTML Text Files   
+
+This deletes all of the HTML Text Files that are stored for now in Github.
+
+These are created when a user runs R. Run HTML Automation.
+
+This is a feature added to allow a clear out of HTML txt files.
+
+The R. Run HTML Automation routine will automatically remove any existing HTML txt files that correspond to any route worksheets(tabs) in html_table_builder sheet. This ensures that the html code is freshly built each time the routine is run.
+
+The User is advised that 'This will remove all of the HTML Text Files'
+
+The user is challenged to input yes if they wish to proceed.
+
+Select D to Delete All HTML Text Files            |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/deletefiles.webp)  |  ![](assets/images/cleared.webp)
+
+The user is advised that the text files are now deleted!
+
+Then the interface returns to the main menu after 1 second.
+
 
 
 
