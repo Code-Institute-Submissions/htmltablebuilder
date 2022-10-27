@@ -79,52 +79,26 @@ The user also has access to two Google Sheets:
 ---------------------------
 
 
-While the application is running the user is kept informed of progress with messages like this:
-
-'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
-
-----------------------------
-
-When the application has finished running the user is advised with messages like this:
-
-'The program is finished executing!'
-
-The user is also advised to look at the completed work on Google Sheets:
-
-'Take a look at Google Sheets to view your HTML Table code.'
-
-----------------------------
-
-The user is instructed on how to proceed with Google sheets and Wordpress:
-
-'Just copy the contents of Cell A1 in the HTML worksheet'
-
-'Then Paste into matching Wordpress Schedule Post'
-
-'Always Check the Wordpress Post Result in the Browser'
-
-----------------------------
-
 ## User Stories
 
-- Users who have no programming skills need to be able to publish LLC timtables to the website.
-    - This application allows the user to do exactly that.
+- Users who have no programming skills need to be able to publish LLC timetables to the website.
+    - This application allows them to work without HTML or CSS skills, as the application makes the html for them, then using copy and paste skills they can publish to wordpress. The styling of the timetable is managed within the wordpress template design. 
 - Users prefer to work in a familiar environment when manipulating timetables.
     - By using Excel and or Google Sheets the user can work with familiar interfaces.
 - Users need to be able to change Timetable data on a regular basis and get the results published without delay.
-    - The level of automation here minimises the time delay.
+    - The level of automation here minimises the time delay and allow the user to quickly publish to wordpress.
 - Users need to be able to redesign timetables like adding an extra column, or putting header text into 2 lines.
-    - This application can cater for that.
+    - Working with Google sheets and/or Excel allows the user to design or manipulate timetables to suit their needs.
 - Users need to be able to highlight certain columns to draw attention to detail.
-    - This application allows for that.
+    - Users can highlight cells by using heavy green borders. These borders are picked up by the application by reading specified rules within designated cells. 
 - Users wish to avoid steep learning curves by being introduced to new systems.
-    - The Copy and Paste method to publish to the web is a concept they are already familiar with.
+    - The Copy and Paste method to publish to the web is a concept they are already familiar with and the Excel and Google Sheets interaction is familiar to them .
 
 --------------------------------
 
 ## Site Navigation
  
-As there is only one option no navigation is required.
+Site navigation is by way of a Main Menu which is presented after User login.
 
 ## Responsive
  
@@ -204,6 +178,32 @@ The default username is: admin
 The default password is: sesame
 
 ### Overview
+
+
+While the application is running the user is kept informed of progress with messages like this:
+
+'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
+
+----------------------------
+
+When the application has finished running the user is advised with messages like this:
+
+'The program is finished executing!'
+
+The user is also advised to look at the completed work on Google Sheets:
+
+'Take a look at Google Sheets to view your HTML Table code.'
+
+----------------------------
+
+The user is instructed on how to proceed with Google sheets and Wordpress:
+
+'Just copy the contents of Cell A1 in the HTML worksheet'
+
+'Then Paste into matching Wordpress Schedule Post'
+
+'Always Check the Wordpress Post Result in the Browser'
+
 
 HTML Table Builder Application runs through all the worksheets in Google sheets other than HTML prefixed sheets.
 
