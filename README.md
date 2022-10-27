@@ -119,19 +119,32 @@ This non gui application is responsive and looks good on different device screen
 
 ------------------------------------
 
-# How it works
----
+# Google Sheets
 
-## Google Sheets Usage
----
+## 1. Timetables Sheet
 
-Base Data to copy and paste from for testing
+The Timetables sheet contains the timetable information for all routes.
+
+<mark>For the purposes of demo this shared sheet contains worksheets(tabs) that show a cross section of timetable variations and types</mark>
 
 https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing
 
-The user sets up Google Sheets prior to running the application
+![](assets/images/timetables.webp)
 
-![](assets/images/sheets.webp)
+## 2. html_table_builder sheet
+
+The html_table_builder sheet is the sheet that the application interacts with.
+
+<mark>Typically the initial status of this sheet is to only contain 1 worksheet(tab) called Rules</mark>
+
+https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
+
+![](assets/images/sheetblank.webp)
+
+------------------------------------
+
+# How it works
+
 
 The user can setup as many worksheets as they wish. But typically there would be only a few timetables requiring update at any given time.
 
