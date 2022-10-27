@@ -258,7 +258,7 @@ Select C to Clear Sheets             |  Type yes to proceed
 
 The user is advised that the worksheets are now deleted!
 
-Then the interface returns to the main menu after 1 second.
+Then the application clears the console and returns to the main menu after 1 second.
 
 ### D. Delete All HTML Text Files   
 
@@ -280,7 +280,7 @@ Select D to Delete All HTML Text Files            |  Type yes to proceed
 
 The user is advised that the txt files are now deleted!
 
-Then the interface returns to the main menu after 1 second.
+Then the application clears the console and returns to the main menu after 1 second.
 
 ### H. Clear HTML Worksheets 
 
@@ -296,34 +296,9 @@ Select H to Clear HTML Worksheets            |  Type yes to proceed
 
 The user is advised that the HTML worksheets are now deleted!
 
-Then the interface returns to the main menu after 1 second.
+Then the application clears the console and returns to the main menu after 1 second.
 
-
-
-While the application is running the user is kept informed of progress with messages like this:
-
-'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
-
-----------------------------
-
-When the application has finished running the user is advised with messages like this:
-
-'The program is finished executing!'
-
-The user is also advised to look at the completed work on Google Sheets:
-
-'Take a look at Google Sheets to view your HTML Table code.'
-
-----------------------------
-
-The user is instructed on how to proceed with Google sheets and Wordpress:
-
-'Just copy the contents of Cell A1 in the HTML worksheet'
-
-'Then Paste into matching Wordpress Schedule Post'
-
-'Always Check the Wordpress Post Result in the Browser'
-
+### R. Run HTML Automation
 
 HTML Table Builder Application runs through all the worksheets in Google sheets other than HTML prefixed sheets.
 
@@ -340,7 +315,32 @@ When all elements of the table html code have been compiled the txt file is then
 
 The files contents are written back to a newly created worksheet with a HTML prefix and the Route number.
 
-Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code.
+<mark>Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code</mark>
+
+Select R to Run HTML Automation           |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/runhtml.webp)  |  ![](assets/images/htmlran.webp)
+
+
+While the application is running the user is kept informed of progress with messages like this:
+
+'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
+
+When the application has finished running the user is advised with messages like this:
+
+'The program is finished executing!'
+
+The user is also advised to look at the completed work on Google Sheets:
+
+'Take a look at Google Sheets to view your HTML Table code.'
+
+The user is instructed on how to proceed with Google sheets and Wordpress:
+
+'Just copy the contents of Cell A1 in the HTML worksheet'
+
+'Then Paste into matching Wordpress Schedule Post'
+
+'Always Check the Wordpress Post Result in the Browser'
 
 Example 253
   
@@ -348,7 +348,15 @@ Google Sheets                     |  Returned HTML                   |  Live on 
 :--------------------------------:|:--------------------------------:|:-----------------------------------:
 ![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
 
----------------------------------
+Then the application clears the console and returns to the main menu after 10 seconds.
+This delay gives the user time to read the instructions.
+
+
+### Q. Quit
+
+This quits form the application and clears the console.
+
+Then the application clears the console and returns to the main menu after 1 seconds.
 
 ----------------------------------
 
