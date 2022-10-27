@@ -38,7 +38,7 @@ def list_sheets():
         return worksheet_list
 
 
-def loop_through_worksheets(ws_list):
+def loop_through_worksheets(ws_list, u_name):
     """
     Loop through the worksheets
     """
@@ -57,7 +57,9 @@ def loop_through_worksheets(ws_list):
                 print(f"Writing HTML Table code for {wsh} to file.")
                 manage_wsheet_data(wsh)
             else:
-                sys.exit(f"{wsh} is not correct. Please Fix it!\n")
+                print(f"{wsh} is not correct. Please Fix it!\n")
+                clear_console(10)
+                main_menu(u_name)
 
     print("HTML Code for worksheets complete!\n")
 
@@ -498,7 +500,7 @@ def run_automation(u_name):
         delete_txt_files("autom")
         clear_html_sheets("autom")
         my_list = list_sheets()
-        loop_through_worksheets(my_list)
+        loop_through_worksheets(my_list, u_name)
         write_file_back()
         print("\n")
         print("The program is finished executing!")

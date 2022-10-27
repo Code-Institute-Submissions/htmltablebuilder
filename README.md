@@ -176,6 +176,8 @@ Rename             |  Paste
 
 When the user is happy that the necessary Google Sheets are in place then they can run the HTML Table Builder Application.
 
+<mark>Important Note: For testing purposes the html_table_builder has already been populated with some sheets from Timetables</mark>
+
 ## Rules
 
 The Basic Rules for the Sheets are provided in the Rules worksheet(tab).
@@ -244,6 +246,8 @@ Once logged in the user is presented with a Main Menu:
 
 ### C. Clear All Worksheets
 
+<mark>Important Note: When testing you should test this option last as it removes all sheets and then you have to copy and paste to populate html_table_builder for other testing</mark>
+
 This deletes all of the worksheets in html_table_builder with the exception of Rules.
 
 This allows the user to go to a reset situation.
@@ -262,7 +266,7 @@ Then the application clears the console and returns to the main menu after 1 sec
 
 ### D. Delete All HTML Text Files   
 
-This deletes all of the HTML Text Files that are stored for now in Github.
+This deletes all of the HTML Text Files that are stored for now in assets/htmlfiles
 
 These are created when a user runs R. Run HTML Automation.
 
@@ -364,18 +368,70 @@ Then the application clears the console and returns to the main menu after 1 sec
 
 ## Tests carried out by me.
 
+### Google Sheets
+
+- Remove all worksheets(tabs) from html_table_builder
+    - Google Sheets will not let me
+- Rename Rules
+    - This is a protected sheet so Google sheets will not let me
+- Delete or edit data in Rules
+    - This is a protected sheet so Google sheets will not let me
+
+<mark>These tests are important as the application expects to find at least 1 worksheet(tab) called Rules</mark>
+
+### Application
+
+- C. Clear All Worksheets when there are no worksheets in html_table_builder
+    - Code runs fine and returns to Main Menu (Rules is always present)
+- C. Clear All Worksheets when there are worksheets in html_table_builder
+    - All worksheets are cleared and returns to Main Menu (Rules is always present)
+- D. Delete All HTML Text Files when there are no txt files in assets/htmlfiles
+    - Code runs fine and returns to Main Menu
+- D. Delete All HTML Text Files when there are txt files in assets/htmlfiles
+    - All text files are deleted and and returns to Main Menu
+- H. Clear HTML Worksheets when there are no HTML Prefix worksheets in html_table_builder
+- H. Clear HTML Worksheets when there are HTML Prefix worksheets in html_table_builder
+    - HTML Prefix worksheets are removed and returns to Main Menu
+- R. Run HTML Automation when there are no worksheets other than Rules in html_table_builder
+    - Code runs fine and returns to Main Menu
+- R. Run HTML Automation when there is only one worksheet with no populated cells in html_table_builder
+    - Code runs picks up there is no Header alerts the user and returns to Main Menu
+- R. Run HTML Automation when there is only a worksheet with a title containing the word sheet in html_table_builder
+    - Code runs picks up the bad title (all titles should begin a minimum of a 3 digit route number) alerts the user and returns to Main Menu
+
+![](assets/images/badtitle.webp)
+
+The Run HTML automation checks for sheet validity by checking:
+
 - HTML Prefix title on worksheets are ignored.
-- Worksheet is not a blank new worksheet (Title:Sheet 1)
+- Worksheet is not a blank worksheet
 - Worksheet title begins with 3 numeric digits.
-- Worksheet has no header row.
-- Header Row
-    - Test with only 1 column
-    - Test with Last column not having HEADEND aas text value
-    - Rules in Last Colum
+- Worksheet has a header row.
+
+The Header row is tested for:
+
+- Test with only 1 column
+- Test with Last column not having HEADEND as text value
+- Test with Last column not having Border Rules as text value
+
+The Last Column of Header Row is checked for:
+- Rules in Last Column
         - : rule marker but invalid rules
         - : rule marker but no rules
         - : rule marker with column counter descending
+
+The worksheet is checked for:
+
 - Only a Header Row, No other rows.
+
+- Q. Quit
+    - The application clears the consoles and quits as expected
+
+<mark>For all menu options I also tested for when the user did not type yes</mark>
+
+### Worksheets with HTML Prefix
+
+Visual check that the html table structure is in place with closing and opening tags
 
 ---------------------------------
 
@@ -393,15 +449,13 @@ The 3 problems that are listed are apparaently in relation to the docker file an
 
 ## User Testing
 
-When the html code is pasted into the wordpress post.
-
-The user can a make a visual comparison in the browser to ensure the results are as expected.
+When the html code is pasted into the wordpress post, the user can a make a visual comparison in the browser to ensure the results are as expected.
 
 The user is the designer of the timetable (within given parameters of course).
 
-Because the outcome in wordpress reflects the users Excel sheet design, it is up to the user to decide if the outcome is what they planned.
+Because the outcome in wordpress reflects the users Google sheet design, it is up to the user to decide if the outcome is what they planned.
 
-If not, they can amend the Excel file or Google Sheet and run the application again.
+If not, they can amend the Google Sheet and run the application again.
 
 ---------------------------------
 
@@ -431,7 +485,7 @@ HTML Design                         |  Wordpress Blocks Basic
 
 ### Unfixed Bugs
 
-- No known unfixed bugs
+- If the html_table_builder sheet does not exist or is not found the application will crash with a json response back from Google sheets. There is no error trap in place for this.
 
 ----
 
@@ -467,6 +521,8 @@ https://html-table-builder.herokuapp.com/
 ## Future Features
 
 - To build a pdf version of the timetable.
+- To read the google sheet formatting instead od relying on border rules.
+- To error trap Google sheet connection failures
 - To use Zapier Automation to update Wordpress post with table.
 
 ----
