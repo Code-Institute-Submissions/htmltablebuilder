@@ -525,6 +525,13 @@ Please click this link to see it in Heroku
 
 https://html-table-builder.herokuapp.com/
 
+
+### Live Deployment for LLC
+
+This project has been copied to https://github.com/TMartin88/SheetTable
+
+<mark>I am further developing the application for LLC as they require this functionality to go live ASAP</mark>
+
 ---------------------------------
 
 ## Future Features
