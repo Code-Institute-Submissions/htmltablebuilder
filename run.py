@@ -29,13 +29,10 @@ def list_sheets():
     """
     Get List of WorkSheets in Sheet
     """
+    worksheet_list = TSHEET.worksheets()
+    print(f"Google Sheets Issue {ValueError()}")
 
-    try:
-        worksheet_list = TSHEET.worksheets()
-    except ValueError:
-        print(f"Google Sheets Issue {ValueError()}")
-    finally:
-        return worksheet_list
+    return worksheet_list
 
 
 def loop_through_worksheets(ws_list, u_name):
