@@ -145,29 +145,82 @@ https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfc
 
 # How it works
 
+## Google Sheets
 
-The user can setup as many worksheets as they wish. But typically there would be only a few timetables requiring update at any given time.
+We will use the route 254 as an example.
 
-The user renames the worksheets to match the Route Number.
+The steps are as follows:
 
-Where the timetable is an amalgamation of several routes then the user titles the worksheet with all of the route numbers seperated by a hyphen.
+First the user interacts with the Timetables Sheet
 
-![](assets/images/multipleexcel.webp)
+- 1. The user selects the worksheet(tab) that they need html code for.
+- 2. The users selects the range of active cells in the worksheet.
+- 3. The user then types Ctrl + C to copy the selected range of cells.
+- 4. The user notes the route number which is the title of the tab.
 
-The Basic Rules for Excel Template are provided in the Rules tab in the users Excel file.
+![](assets/images/254copy.webp)
 
-![](assets/images/rulesexcel.webp)
+Now the user interacts with the html_table_builder Sheet
 
-These rules do not always impact on the application.
+![](assets/images/addsheet.webp)
 
-Some of these rules are for visual purposes so the the user can see what the Excel Timetable will look like when it is published in Wordpress.
+- 1. The user by clicking the + sign can create a new worksheet(tab) 
+- 2. The user renames the worksheet(tab) to the appropriate Route number.
+- 3. The user selects cell A1 and then types Ctrl + V to paste.
 
-The rules that impact the Application are in the last column first row.
+Rename             |  Paste
+:-----------------:|:-----------------:
+![](assets/images/rename.webp)  |  ![](assets/images/paste.webp)
+
+<mark>The user can setup as many worksheets as they wish by repeating this process, but typically there would be only a few timetables requiring publishing at any given time</mark>
 
 When the user is happy that the necessary Google Sheets are in place then they can run the HTML Table Builder Application.
 
-Example 253
+## Rules
 
+The Basic Rules for the Sheets are provided in the Rules worksheet(tab).
+
+![](assets/images/sheetblank.webp)
+
+These rules do not always impact on the application or have a HTML consequence.
+
+Some of these rules are for visual purposes so the the user can see what the Timetable will look like when it is published in Wordpress.
+
+### Application Specific Rules
+
+The rules that impact the Application are in the last column first row.
+
+This cell will contain either of the following:
+
+- 1. HEADEND <mark>This is the end of Header marker for the application where there are no border instructions</mark>
+
+![](assets/images/noborder.webp)
+
+- 2. Border Instructions <mark>These instructions are read by the application and are an end of Header marker</mark>
+
+Left and Right Border             |  Left Border or Right Border
+:-----------------:|:-----------------:
+![](assets/images/double.webp)  |  ![](assets/images/single.webp)
+
+### Borders Explained
+
+- A cell(column) can have a border on the left and the right. This is designated with a B.
+- A cell(column) can have a border on the Left only. This is designated with an L.
+- A cell(column) can have a border on the Right only. This is designated with an R.
+
+The user indicates where the borders are to be placed. The application picks up on this instruction.
+
+For example: 
+
+- 7B means a border left and right on column 7
+- 7L:8R means a left border on column 7 and a right border on column 8
+
+<mark>':' is the symbol used to indicate a rule break point</mark>
+
+------------------------------------
+
+Example 253
+  
 Google Sheets                     |  Returned HTML                   |  Live on Browser
 :--------------------------------:|:--------------------------------:|:-----------------------------------:
 ![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
