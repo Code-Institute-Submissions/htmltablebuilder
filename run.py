@@ -428,7 +428,7 @@ def delete_txt_files(u_name):
         else:
             print("Ok, you did not type yes, so returning to Main menu!")
 
-        clear_console(5)
+        clear_console(1)
 
         main_menu(u_name)
 

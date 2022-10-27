@@ -276,12 +276,27 @@ The user is challenged to input yes if they wish to proceed.
 
 Select D to Delete All HTML Text Files            |  Type yes to proceed
 :-----------------:|:-----------------:
-![](assets/images/deletefiles.webp)  |  ![](assets/images/cleared.webp)
+![](assets/images/deletefiles.webp)  |  ![](assets/images/deletedtxt.webp)
 
-The user is advised that the text files are now deleted!
+The user is advised that the txt files are now deleted!
 
 Then the interface returns to the main menu after 1 second.
 
+### H. Clear HTML Worksheets 
+
+This deletes all of the worksheets(tabs) that have a HTML Prefix in the title.
+
+These are created when a user runs R. Run HTML Automation.
+
+This is a feature added to allow a clear out of worksheets(tabs) with HTML Prefix.
+
+Select H to Clear HTML Worksheets            |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/htmlclear.webp)  |  ![](assets/images/htmlcleared.webp)
+
+The user is advised that the HTML worksheets are now deleted!
+
+Then the interface returns to the main menu after 1 second.
 
 
 
