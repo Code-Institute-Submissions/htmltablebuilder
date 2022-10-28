@@ -144,6 +144,8 @@ https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfc
 
 # How it works
 
+<mark>See User Testing below</mark>
+
 ## Google Sheets
 
 We will use the route 254 as an example.
@@ -223,6 +225,8 @@ For example:
 # Application
 
 This is a non GUI application.
+
+<mark>See User Testing below</mark>
 
 ## Login
 
