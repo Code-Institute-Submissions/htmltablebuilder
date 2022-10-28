@@ -492,9 +492,14 @@ HTML Design                         |  Wordpress Blocks Basic
 - October 15th 2022 sheet errors problem
     - Fix 62b6fee4d708f5946810424a4479d533b0a040e3 create function to validate sheets.
 
+- October 28th 2022 login error on heroku
+    - Fix 37a3cb2f048fbd6cb6159aa83a503e6d317b3311 remove user csv file from gitignore.
+
 ### Unfixed Bugs
 
 - If the html_table_builder sheet does not exist or is not found the application will crash with a json response back from Google sheets. There is no error trap in place for this.
+
+- The users.csv contains the login information. For a demo this is fine for it to be exposed. But in a real world situation this data would be called from a secured location like a database.
 
 ----
 
