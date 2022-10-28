@@ -4,18 +4,17 @@ LLC denotes Local Link Cork
 -
 ---------------------------
 
-
 ## Site Goals
 
 HTML Table Builder is an application developed in Python for LLC Timetable Management staff.
 
 These staff members typically have no coding abilities whatsoever.
 
-This application is designed to auto generate html table code for [Timetables](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing) stored on Google Sheets.
+This application is designed to auto generate html table code for html_table_builder sheet on Google Sheets.
 
+![](assets/images/sheets.webp)
 
 <mark>Note: See GDPR and Google Sheets Data</mark>
-
 
 This application is an assist for LLC staff engaged in Timetable Management to easily publish timetable revisions to the LLC website.   
 
