@@ -275,7 +275,7 @@ These are created when a user runs R. Run HTML Automation.
 
 This is a feature added to allow a clear out of HTML txt files.
 
-The R. Run HTML Automation routine will automatically remove any existing HTML txt files that correspond to any route worksheets(tabs) in html_table_builder sheet. This ensures that the html code is freshly built each time the routine is run.
+<mark>The R. Run HTML Automation routine will also automatically remove any existing HTML txt files that correspond to any route worksheets(tabs) in html_table_builder sheet. This ensures that the html code is freshly built each time the routine is run</mark>
 
 The User is advised that 'This will remove all of the HTML Text Files'
 
