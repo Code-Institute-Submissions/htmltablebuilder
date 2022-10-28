@@ -448,6 +448,25 @@ The 3 problems that are listed are apparaently in relation to the docker file an
 
 ## User Testing
 
+To see this in action it is best to use 2 monitors.
+
+All links should be opened in a new tab for convenience.
+
+[Open the App on Screen 1](https://html-table-builder.herokuapp.com/)
+
+[Open the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
+
+The html_builder_sheet has been pre populated for tester convenience.
+
+If you wish to view the Timetables sheet which contains the Timetables data you can view it here:
+
+https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit#gid=1860825314
+
+
+--------------------------------
+
+## LLC Staff Final Verification
+
 When the html code is pasted into the wordpress post, the user can a make a visual comparison in the browser to ensure the results are as expected.
 
 The user is the designer of the timetable (within given parameters of course).
