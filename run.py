@@ -566,7 +566,7 @@ def check_password(u_name, p_word):
     """
     Check the password is valid
     """
-    path_of_the_directory = 'assets/registered/'
+    path_of_the_directory = 'data/'
     filename = "users.csv"
     fname = os.path.join(path_of_the_directory, filename)
 

@@ -14,7 +14,7 @@ These staff members typically have no coding abilities whatsoever.
 This application is designed to auto generate html table code for [Timetables](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing) stored on Google Sheets.
 
 
-<mark>Note: See GDPR and Privacy Section</mark>
+<mark>Note: See GDPR and Google Sheets Data</mark>
 
 
 This application is an assist for LLC staff engaged in Timetable Management to easily publish timetable revisions to the LLC website.   
@@ -107,7 +107,7 @@ This non gui application is responsive and looks good on different device screen
 
 --------------------------------
 
-# Google Sheets data and GDPR
+# GDPR and Google Sheets Data
 
 - Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use timetable data.
 
@@ -198,7 +198,7 @@ This cell will contain either of the following:
 
 ![](assets/images/noborder.webp)
 
-- 2. Border Instructions <mark>These instructions are read by the application and are an end of Header marker</mark>
+- 2. Border Instructions <mark>These instructions are read by the application and also serve as an end of Header marker</mark>
 
 Left and Right Border             |  Left Border or Right Border
 :-----------------:|:-----------------:
