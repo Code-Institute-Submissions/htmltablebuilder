@@ -555,9 +555,9 @@ https://html-table-builder.herokuapp.com/
 
 ### Live Deployment for LLC
 
-This project has been copied to https://github.com/TMartin88/SheetTable
+This project has been copied to another Github Repository.
 
-<mark>I am further developing the application for LLC as they require this functionality to go live ASAP</mark>
+<mark>I am further developing the application for LLC beyond the scope of this project within the new repository</mark>
 
 ---------------------------------
 
