@@ -1,20 +1,18 @@
 # HTML Table Builder <img align="right" width="75" height="75" src="favicon.ico">
 
-LLC denotes Local Link Cork
--
+
+**LLC** denotes Local Link Cork
+
 ---------------------------
 
 ## Site Goals
+---
 
 HTML Table Builder is an application developed in Python for LLC Timetable Management staff.
 
 These staff members typically have no coding abilities whatsoever.
 
 This application is designed to auto generate html table code for html_table_builder sheet on Google Sheets.
-
-![](assets/images/sheets.webp)
-
-<mark>Note: See GDPR and Google Sheets Data</mark>
 
 This application is an assist for LLC staff engaged in Timetable Management to easily publish timetable revisions to the LLC website.   
 
@@ -26,11 +24,56 @@ Excel is a familiar environment for LLC staff to work with and a lot of the time
 
 Google Sheets has a lot of similarities and of course LLC staff can copy and paste their Excel creations to Google Sheets.
 
-<mark>Important Note: All references to Local Link are for Local Link Cork only.</mark>
+------------------------------------
 
-Google Sheets              |  Python Utility
+Python Application             |  Google Sheets
 :-----------------:|:-----------------:
-![](assets/images/sheets.webp)  |  ![](assets/images/python.webp)
+![](assets/images/herokuinterface.webp)  |  ![](assets/images/sheetblank.webp)
+
+### Motivation
+---
+
+- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we identified that staff preferred to work on Timetables in Excel.
+- These Excel timetables need to be controlled and managed.
+- These excel timetables need to be visible to the public.
+- Wordpress is the preferred platform to publish timetables for public viewing.
+
+The challenge is to take data stored in Excel files and bring them to the public through Wordpress.
+
+![](assets/images/excel.webp)
+
+------------------------------------
+
+# GDPR and Google Sheets Data
+---
+
+- Thanks to Steve Ellis Operations Co-Ordinator of LLC for permission to use timetable data.
+
+- The Sheets are Shared and visible to anyone with a link.
+
+- The Sheets are on my personal Google account and the data is not sensitive.
+
+- The Timetable data is already in the public domain.
+
+------------------------------------
+
+## User Stories
+---
+
+- Users who have no programming skills need to be able to publish LLC timetables to the website.
+    - This application allows them to work without HTML or CSS skills, as the application makes the html for them, then using copy and paste skills they can publish to wordpress. The styling of the timetable is managed within the wordpress template design. 
+- Users prefer to work in a familiar environment when manipulating timetables.
+    - By using Excel and or Google Sheets the user can work with familiar interfaces.
+- Users need to be able to change Timetable data on a regular basis and get the results published without delay.
+    - The level of automation here minimises the time delay and allow the user to quickly publish to wordpress.
+- Users need to be able to redesign timetables like adding an extra column, or putting header text into 2 lines.
+    - Working with Google sheets and/or Excel allows the user to design or manipulate timetables to suit their needs.
+- Users need to be able to highlight certain columns to draw attention to detail.
+    - Users can highlight cells by using heavy green borders. These borders are picked up by the application by reading specified rules within designated cells. 
+- Users wish to avoid steep learning curves by being introduced to new systems.
+    - The Copy and Paste method to publish to the web is a concept they are already familiar with and the Excel and Google Sheets interaction is familiar to them .
+
+--------------------------------
 
 # UX/UI & Features
 
@@ -44,9 +87,9 @@ This is a non GUI application.
 
 The initial interaction with the user is a simple login like this:
 
-Please enter your username:
+Please enter your username: admin
 
-Please enter your password:
+Please enter your password: sesame
 
 ---------------------------
 
@@ -76,24 +119,6 @@ The user also has access to two Google Sheets:
 
 ---------------------------
 
-## User Stories
----
-
-- Users who have no programming skills need to be able to publish LLC timetables to the website.
-    - This application allows them to work without HTML or CSS skills, as the application makes the html for them, then using copy and paste skills they can publish to wordpress. The styling of the timetable is managed within the wordpress template design. 
-- Users prefer to work in a familiar environment when manipulating timetables.
-    - By using Excel and or Google Sheets the user can work with familiar interfaces.
-- Users need to be able to change Timetable data on a regular basis and get the results published without delay.
-    - The level of automation here minimises the time delay and allow the user to quickly publish to wordpress.
-- Users need to be able to redesign timetables like adding an extra column, or putting header text into 2 lines.
-    - Working with Google sheets and/or Excel allows the user to design or manipulate timetables to suit their needs.
-- Users need to be able to highlight certain columns to draw attention to detail.
-    - Users can highlight cells by using heavy green borders. These borders are picked up by the application by reading specified rules within designated cells. 
-- Users wish to avoid steep learning curves by being introduced to new systems.
-    - The Copy and Paste method to publish to the web is a concept they are already familiar with and the Excel and Google Sheets interaction is familiar to them .
-
---------------------------------
-
 ## Site Navigation
  
 Site navigation is by way of a Main Menu which is presented after User login.
@@ -106,43 +131,45 @@ This non gui application is responsive and looks good on different device screen
 
 --------------------------------
 
-# GDPR and Google Sheets Data
+# Project Elements
 
-- Thanks to Steve Ellis Operations Co-Ordinator of Local Link Cork for permission to use timetable data.
+## Google Sheets
 
-- The Sheets are Shared and visible to anyone with a link.
-
-- The Sheets are on my personal Google account and the data is not sensitive.
-
-- The Timetable data is already in the public domain.
-
-------------------------------------
-
-# Google Sheets
-
-## 1. Timetables Sheet
+### 1. Timetables Sheet
 
 The Timetables sheet contains the timetable information for all routes.
-
-<mark>For the purposes of demo this shared sheet contains worksheets(tabs) that show a cross section of timetable variations and types</mark>
 
 https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing
 
 ![](assets/images/timetables.webp)
 
-## 2. html_table_builder sheet
+### 2. html_table_builder sheet
 
 The html_table_builder sheet is the sheet that the application interacts with.
-
-<mark>Typically the initial status of this sheet is to only contain 1 worksheet(tab) called Rules</mark>
 
 https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
 
 ![](assets/images/sheetblank.webp)
 
+## Python Application
+
+![](assets/images/herokuinterface.webp)
+
+## Wordpress
+
+
+### Wordpress Tables
+
+
+### Wordpress Template
+
 ------------------------------------
 
 # How it works
+
+<mark>For the purposes of demo this shared sheet contains worksheets(tabs) that show a cross section of timetable variations and types</mark>
+
+<mark>Typically the initial status of this sheet is to only contain 1 worksheet(tab) called Rules</mark>
 
 <mark>See User Testing below</mark>
 
@@ -577,15 +604,6 @@ This project has been copied to another Github Repository.
 ----
  
 ## Credits
-
-### Inspiration
-
-- Working part time with Local Link Cork and in association with Steve Ellis we identified that staff needed to work on Timetables in Excel.
-- Also that these excel timetables needed to to be published to Wordpress.
-
-The challenge is to take data stored in Excel files and bring them to the public.
-
-### Content
 
 - Credit to thispointer for a handy fumction to write multiple lines to a text file
 

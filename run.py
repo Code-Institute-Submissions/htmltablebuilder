@@ -520,26 +520,27 @@ def main_menu(u_name):
     print("Building HTML Table Code from Google Sheets.\n")
 
     user_option = input("""
-        C: Clear All Worksheets
-        D: Delete All HTML Text Files
-        H: Clear HTML Worksheets
         R: Run HTML Automation
+        H: Delete HTML Worksheets
+        W: Delete All Worksheets
         Q: Quit
 
         Please enter your choice here: """)
 
-    if user_option == "C" or user_option == "c":
-        clear_all_sheets(u_name)
-    elif user_option == "D" or user_option == "d":
-        delete_txt_files(u_name)
-    elif user_option == "H" or user_option == "h":
-        clear_html_sheets(u_name)
-    elif user_option == "R" or user_option == "r":
+    if user_option.lower() == "r":
         run_automation(u_name)
-    elif user_option == "Q" or user_option == "q":
+    elif user_option.lower() == "h":
+        clear_html_sheets(u_name)
+    elif user_option.lower() == "w":
+        clear_all_sheets(u_name)
+    elif user_option.lower() == "q":
         print("Quitting")
         clear_console(1)
         sys.exit()
+    else:
+        print(f"You selected {user_option}. Please try again")
+        clear_console(1)
+        main_menu(u_name)
 
 
 def login_user():
