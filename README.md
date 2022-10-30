@@ -245,7 +245,7 @@ Route Number worksheet(tab)
 
 ![](assets/images/1120again.webp)
 
-In Worksheet HTML 1120: next to fx where it says figure id=swappera class="wp-block-table" Click to highlight
+In Worksheet **HTML 1120** next to **fx** where it says **figure id=swappera class="wp-block-table" Click to highlight**
 
 <mark>This is the actual cell content of A1</mark>
 
@@ -270,6 +270,8 @@ In Worksheet HTML 1120: next to fx where it says figure id=swappera class="wp-bl
 In the HTML Section paste in the html we just copied.
 
 **CTRL + V** to Paste
+
+![](assets/images/fiddlehtml.webp)
 
 ### Fiddle CSS
 
@@ -344,9 +346,11 @@ table .thickright {
 
 Then Click Run in Fiddle 
 
-![](assets/images/fiddlerun.webp)
+![](assets/images/runfiddle.webp)
 
 The user can see the result and verify that it is as expected.
+
+![](assets/images/fiddlerun.webp)
 
 ------------------------------------
 
@@ -356,7 +360,7 @@ This deletes all of the worksheets(tabs) that have a HTML Prefix in the title.
 
 These are created when a user runs R. Run HTML Automation.
 
-This is a feature added to allow a clear out of worksheets(tabs) with HTML Prefix.
+This is a housekeeping feature added to allow a clear out of worksheets(tabs) with HTML Prefix.
 
 Select H to Clear HTML Worksheets            |  Type yes to proceed
 :-----------------:|:-----------------:
@@ -383,7 +387,7 @@ This delay gives the user time to read the instructions.
 
 This deletes all of the worksheets in html_table_builder with the exception of Rules.
 
-This allows the user to go to a reset situation.
+This is a housekeeping feature that allows the user to go to a reset situation.
 
 The User is advised that 'This will remove all of the worksheets other than Rules'
 
