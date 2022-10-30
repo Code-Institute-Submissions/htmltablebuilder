@@ -291,6 +291,8 @@ def write_file_back():
     print("Writing HTML code from files to worksheets...")
 
     path_of_the_directory = 'assets/htmlfiles/'
+    # Check if this directory exists, if not create it
+    check_folder_exists(path_of_the_directory)
 
     for filename in os.listdir(path_of_the_directory):
         fname = os.path.join(path_of_the_directory, filename)
@@ -436,6 +438,8 @@ def deltxt_loop():
     """
     print("Removing any existing txt files...")
     path_of_the_directory = 'assets/htmlfiles/'
+    # Check if this directory exists, if not create it
+    check_folder_exists(path_of_the_directory)
     for file_name in os.listdir(path_of_the_directory):
         # construct full file path
         file = path_of_the_directory + file_name
@@ -444,6 +448,14 @@ def deltxt_loop():
             os.remove(file)
 
     print("The txt files are now deleted!\n")
+
+
+def check_folder_exists(folder_name):
+    """
+    Check the folder exists.
+    """
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
 
 
 def clear_html_sheets(u_name):

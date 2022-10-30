@@ -131,29 +131,138 @@ This non gui application is responsive and looks good on different device screen
 
 --------------------------------
 
-# Project Elements
+# Project Walkthrough for User Testing
+
+**Recommended:**
+- Best viewed with 2 computer screens.
+- Open all links in a new tab.
 
 ## Google Sheets
 
 ### 1. Timetables Sheet
 
-The Timetables sheet contains the timetable information for all routes.
-
-https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing
+[Open the Timetables on Screen 1](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing)
 
 ![](assets/images/timetables.webp)
 
+The Timetables sheet contains the timetable information for all routes. There is a worksheet(tab) for every route. These worksheets(tabs) contain a cross section of timetable variations and types.
+
 ### 2. html_table_builder sheet
 
-The html_table_builder sheet is the sheet that the application interacts with.
+[Open the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
 
-https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit?usp=sharing
+![](assets/images/screen2.webp)
 
-![](assets/images/sheetblank.webp)
+<mark>The html_builder_sheet has been pre populated with some routes for walkthrough convenience</mark>
+
+<mark>Typically the initial status of this sheet is to only contain 1 worksheet(tab) called Rules</mark>
+
+#### Copy & Paste
+
+Using **1120** as an example
+
+Goto **Timetables** sheet on Screen 1
+
+![](assets/images/1120.webp)
+
+Select all active cells
+
+![](assets/images/1120copy.webp)
+
+Then Ctrl + C to **Copy**
+
+Goto **html_table_builder** sheet on Screen 2
+
+Click + to create a new worksheet
+
+![](assets/images/addsheet.webp)
+
+Right Click on the newly created sheet and Rename the Sheet to 1120
+
+Right Click            |  Rename
+:-----------------:|:-----------------:
+![](assets/images/rename.webp)  |  ![](assets/images/1120rename.webp)
+
+Select cell A1 and then types Ctrl + V to **Paste**
+
+Cell A1            |  Paste
+:-----------------:|:-----------------:
+![](assets/images/1120cell.webp)  |  ![](assets/images/1120paste.webp)
+
+<mark>The user can setup as many worksheets as they wish by repeating this process, but typically there would be only a few timetables requiring publishing at any given time</mark> 
+
+<mark>Now the **html_table_builder** sheet has been setup for Publishing</mark>
+
+-------------------------------- 
 
 ## Python Application
 
+### Login
+
+[Open the App on Screen 1](https://html-table-builder.herokuapp.com/)
+
+![](assets/images/herokuapp.webp)
+
+The initial interaction with the user is a simple login like this:
+
+Please enter your username:
+
+Please enter your password:
+
+The default username is: admin
+The default password is: sesame
+
+### Main Menu
+
+Once logged in the user is presented with a Main Menu:
+
 ![](assets/images/herokuinterface.webp)
+
+#### R. Run HTML Automation
+
+HTML Automation loops runs through all the worksheets in html_table_builder Sheet.
+
+Looping through each sheet the table html code is created and written to a local text file.
+
+The table elements are gathered in 4 distinct groupings:
+
+1. Table definition html code
+2. Table header html code
+3. Table Rows html code
+4. Table footer html code
+
+When all elements of the table html code have been compiled the text file is then read.
+
+The text file contents are written back to a newly created worksheet titled with a HTML prefix and the Route number.
+
+<mark>Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code</mark>
+
+Select R to Run HTML Automation           |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/runhtml.webp)  |  ![](assets/images/htmlran.webp)
+
+
+While the application is running the user is kept informed of progress with messages like this:
+
+'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
+
+When the application has finished running the user is advised with messages like this:
+
+'The program is finished executing!'
+
+The user is also advised to look at the completed work on Google Sheets:
+
+'Take a look at Google Sheets to view your HTML Table code.'
+
+The user is instructed on how to proceed with Google sheets and Wordpress:
+
+'Just copy the contents of Cell A1 in the HTML worksheet'
+
+'Then Paste into matching Wordpress Schedule Post'
+
+'Always Check the Wordpress Post Result in the Browser'
+
+
 
 ## Wordpress
 
@@ -165,46 +274,21 @@ https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfc
 
 ------------------------------------
 
-# How it works
-
-<mark>For the purposes of demo this shared sheet contains worksheets(tabs) that show a cross section of timetable variations and types</mark>
-
-<mark>Typically the initial status of this sheet is to only contain 1 worksheet(tab) called Rules</mark>
-
-<mark>See User Testing below</mark>
 
 ## Google Sheets
 
-We will use the route 254 as an example.
 
-The steps are as follows:
-
-First the user interacts with the Timetables Sheet
-
-- 1. The user selects the worksheet(tab) that they need html code for.
-- 2. The users selects the range of active cells in the worksheet.
-- 3. The user then types Ctrl + C to copy the selected range of cells.
-- 4. The user notes the route number which is the title of the tab.
 
 ![](assets/images/254copy.webp)
 
-Now the user interacts with the html_table_builder Sheet
 
-![](assets/images/addsheet.webp)
 
-- 1. The user by clicking the + sign can create a new worksheet(tab) 
-- 2. The user renames the worksheet(tab) to the appropriate Route number.
-- 3. The user selects cell A1 and then types Ctrl + V to paste.
 
-Rename             |  Paste
-:-----------------:|:-----------------:
-![](assets/images/rename.webp)  |  ![](assets/images/paste.webp)
 
-<mark>The user can setup as many worksheets as they wish by repeating this process, but typically there would be only a few timetables requiring publishing at any given time</mark>
 
-When the user is happy that the necessary Google Sheets are in place then they can run the HTML Table Builder Application.
 
-<mark>Important Note: For testing purposes the html_table_builder has already been populated with some sheets from Timetables</mark>
+
+
 
 ## Rules
 
@@ -249,30 +333,10 @@ For example:
 
 ------------------------------------
 
-# Application
 
-This is a non GUI application.
 
-<mark>See User Testing below</mark>
 
-## Login
 
-![](assets/images/herokuapp.webp)
-
-The initial interaction with the user is a simple login like this:
-
-Please enter your username:
-
-Please enter your password:
-
-The default username is: admin
-The default password is: sesame
-
-## Main Menu
-
-Once logged in the user is presented with a Main Menu:
-
-![](assets/images/herokuinterface.webp)
 
 ### C. Clear All Worksheets
 
@@ -332,49 +396,7 @@ The user is advised that the HTML worksheets are now deleted!
 
 Then the application clears the console and returns to the main menu after 1 second.
 
-### R. Run HTML Automation
 
-HTML Table Builder Application runs through all the worksheets in Google sheets other than HTML prefixed sheets.
-
-Looping through each sheet the table html code is created and written to a local txt file.
-
-The table elements are gathered in 4 distinct groupings:
-
-1. Table definition html code
-2. Table header html code
-3. Table Rows html code
-4. Table footer html code
-
-When all elements of the table html code have been compiled the txt file is then read.
-
-The files contents are written back to a newly created worksheet with a HTML prefix and the Route number.
-
-<mark>Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code</mark>
-
-Select R to Run HTML Automation           |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/runhtml.webp)  |  ![](assets/images/htmlran.webp)
-
-
-While the application is running the user is kept informed of progress with messages like this:
-
-'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
-
-When the application has finished running the user is advised with messages like this:
-
-'The program is finished executing!'
-
-The user is also advised to look at the completed work on Google Sheets:
-
-'Take a look at Google Sheets to view your HTML Table code.'
-
-The user is instructed on how to proceed with Google sheets and Wordpress:
-
-'Just copy the contents of Cell A1 in the HTML worksheet'
-
-'Then Paste into matching Wordpress Schedule Post'
-
-'Always Check the Wordpress Post Result in the Browser'
 
 Example 253
   
@@ -476,25 +498,6 @@ The 3 problems that are listed are apparaently in relation to the docker file an
 ![](assets/images/pep8.webp)
 
 ---------------------------------
-
-## User Testing
-
-To see this in action it is best to use 2 monitors.
-
-All links should be opened in a new tab for convenience.
-
-[Open the App on Screen 1](https://html-table-builder.herokuapp.com/)
-
-[Open the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
-
-The html_builder_sheet has been pre populated for tester convenience.
-
-If you wish to view the Timetables sheet which contains the Timetables data you can view it here:
-
-https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit#gid=1860825314
-
-
---------------------------------
 
 ## LLC Staff Final Verification
 
