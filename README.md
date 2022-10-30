@@ -139,7 +139,7 @@ This non gui application is responsive and looks good on different device screen
 
 ## Google Sheets
 
-### 1. Timetables Sheet
+### Timetables Sheet
 
 [Open the Timetables on Screen 1](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing)
 
@@ -147,7 +147,7 @@ This non gui application is responsive and looks good on different device screen
 
 The Timetables sheet contains the timetable information for all routes. There is a worksheet(tab) for every route. These worksheets(tabs) contain a cross section of timetable variations and types.
 
-### 2. html_table_builder sheet
+### html_table_builder sheet
 
 [Open the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
 
@@ -262,6 +262,102 @@ The user is instructed on how to proceed with Google sheets and Wordpress:
 
 'Always Check the Wordpress Post Result in the Browser'
 
+### html_table_builder sheet
+
+[View the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
+
+Notice that we now an equivalent worksheet(tab) with a HTML Prefix for every
+Route Number worksheet(tab) 
+
+![](assets/images/1120again.webp)
+
+In Worksheet HTML 1120:Cell A1 
+**CTRL + A** to Select All
+
+![](assets/images/1120selectall.webp)
+
+**CTRL + C** to Copy
+
+<mark>Now we have our correctly formatted html table complete with all the necessary html tags</mark>
+
+-------------------------------- 
+
+## Check Our Result
+
+[To check what our HTML looks like use](https://jsfiddle.net/)
+
+![](assets/images/fiddle.webp)
+ 
+### Fiddle HTML
+
+In the HTML Section paste in the html we just copied.
+
+**CTRL + C** to Copy 
+
+### CSS
+
+<pre>
+table {
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 2.5px;
+}
+
+.tabletime {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* The Table Header th */
+.tabletime th {
+  color: white;
+}
+
+/* The Table Stripes */
+.tabletime tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tabletime tr:hover {
+  background-color: #ddd;
+}
+
+/* The Table Rows and Header */
+.tabletime td,
+.tabletime th {
+  display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* The Table First Column Fixed No Scroll */
+.tabletime tr td:nth-child(1) {
+  position: sticky;
+  position: -webkit-sticky;
+  left: 0;
+  z-index: 1;
+  background-color: #04AA6D;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* This sets the thickness for specific column*/
+table .thickborder {
+  border-left: 2px double 	#04AA6D; 
+  border-right: 2px double 	#04AA6D; 
+}
+
+/* This sets the thickness for specific column left only*/
+table .thickleft {
+  border-left: 2px double 	#04AA6D; 
+}
+
+/* This sets the thickness for specific column right only*/
+table .thickright {
+  border-right: 2px double 	#04AA6D; 
+}
+</pre>
 
 
 ## Wordpress
