@@ -181,13 +181,15 @@ Click + to create a new worksheet
 
 ![](assets/images/addsheet.webp)
 
-Right Click on the newly created sheet and Rename the Sheet to 1120
+Right Click on the newly created worksheet(tab) titled Sheet?? and Rename the Worksheet(tab) to 1120.
 
-Right Click            |  Rename
+Do not rename the Sheet title itself
+
+Yes Rename            |  No this is incorrect
 :-----------------:|:-----------------:
-![](assets/images/rename.webp)  |  ![](assets/images/1120rename.webp)
+![](assets/images/rename1120.webp)  |  ![](assets/images/donot.webp)
 
-Select cell A1 and then types Ctrl + V to **Paste**
+Select **Cell A1** and then types Ctrl + V to **Paste**
 
 Cell A1            |  Paste
 :-----------------:|:-----------------:
@@ -197,11 +199,15 @@ Cell A1            |  Paste
 
 <mark>Now the **html_table_builder** sheet has been setup for Publishing</mark>
 
+Now go ahead and Run the Application with the instructions below.
+
 -------------------------------- 
 
 ## Python Application
 
 ### Login
+
+<mark>Remember open all links in a new tab</mark>
 
 [Open the App on Screen 1](https://html-table-builder.herokuapp.com/)
 
@@ -226,45 +232,9 @@ Once logged in the user is presented with a Main Menu:
 
 HTML Automation loops runs through all the worksheets in html_table_builder Sheet.
 
-Looping through each sheet the table html code is created and written to a local text file.
-
-The table elements are gathered in 4 distinct groupings:
-
-1. Table definition html code
-2. Table header html code
-3. Table Rows html code
-4. Table footer html code
-
-When all elements of the table html code have been compiled the text file is then read.
-
-The text file contents are written back to a newly created worksheet titled with a HTML prefix and the Route number.
-
-<mark>Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code</mark>
-
 Select R to Run HTML Automation           |  Type yes to proceed
 :-----------------:|:-----------------:
 ![](assets/images/runhtml.webp)  |  ![](assets/images/htmlran.webp)
-
-
-While the application is running the user is kept informed of progress with messages like this:
-
-'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
-
-When the application has finished running the user is advised with messages like this:
-
-'The program is finished executing!'
-
-The user is also advised to look at the completed work on Google Sheets:
-
-'Take a look at Google Sheets to view your HTML Table code.'
-
-The user is instructed on how to proceed with Google sheets and Wordpress:
-
-'Just copy the contents of Cell A1 in the HTML worksheet'
-
-'Then Paste into matching Wordpress Schedule Post'
-
-'Always Check the Wordpress Post Result in the Browser'
 
 ### html_table_builder sheet
 
@@ -289,7 +259,9 @@ In Worksheet HTML 1120: next to fx where it says figure id=swappera class="wp-bl
 
 ## Check Our Result
 
-[To check what our HTML looks like use](https://jsfiddle.net/)
+<mark>Remember open all links in a new tab</mark>
+
+[To check what our HTML looks like Open Fiddle on Screen 2](https://jsfiddle.net/)
 
 ![](assets/images/fiddle.webp)
  
@@ -297,7 +269,7 @@ In Worksheet HTML 1120: next to fx where it says figure id=swappera class="wp-bl
 
 In the HTML Section paste in the html we just copied.
 
-**CTRL + C** to Copy 
+**CTRL + V** to Paste
 
 ### Fiddle CSS
 
@@ -430,6 +402,47 @@ Then the application clears the console and returns to the main menu after 1 sec
 This quits form the application and clears the console.
 
 Then the application clears the console and returns to the main menu after 1 seconds.
+
+------------------------------------
+
+#### R. Run HTML Automation Explained
+
+HTML Automation loops runs through all the worksheets in html_table_builder Sheet.
+
+Looping through each sheet the table html code is created and written to a local text file.
+
+The table elements are gathered in 4 distinct groupings:
+
+1. Table definition html code
+2. Table header html code
+3. Table Rows html code
+4. Table footer html code
+
+When all elements of the table html code have been compiled the text file is then read.
+
+The text file contents are written back to a newly created worksheet titled with a HTML prefix and the Route number.
+
+<mark>Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code</mark>
+
+While the application is running the user is kept informed of progress with messages like this:
+
+'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
+
+When the application has finished running the user is advised with messages like this:
+
+'The program is finished executing!'
+
+The user is also advised to look at the completed work on Google Sheets:
+
+'Take a look at Google Sheets to view your HTML Table code.'
+
+The user is instructed on how to proceed with Google sheets and Wordpress:
+
+'Just copy the contents of Cell A1 in the HTML worksheet'
+
+'Then Paste into matching Wordpress Schedule Post'
+
+'Always Check the Wordpress Post Result in the Browser'
 
 ------------------------------------
 
