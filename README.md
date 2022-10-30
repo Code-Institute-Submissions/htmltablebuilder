@@ -33,12 +33,16 @@ Python Application             |  Google Sheets
 ### Motivation
 ---
 
-- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we identified that staff preferred to work on Timetables in Excel.
+- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we identified that staff prefer to work on Timetables in Excel.
 - These Excel timetables need to be controlled and managed.
 - These excel timetables need to be visible to the public.
 - Wordpress is the preferred platform to publish timetables for public viewing.
 
 The challenge is to take data stored in Excel files and bring them to the public through Wordpress.
+
+To do this we need to take Excel timetables and convert them to properly formatted HTML tables.
+
+The Users can then Copy and Paste the HTML into Custom posts on Wordpress.
 
 ![](assets/images/excel.webp)
 
@@ -205,9 +209,9 @@ Cell A1            |  Paste
 
 The initial interaction with the user is a simple login like this:
 
-Please enter your username:
+Please enter your username: admin
 
-Please enter your password:
+Please enter your password: sesame
 
 The default username is: admin
 The default password is: sesame
@@ -271,16 +275,17 @@ Route Number worksheet(tab)
 
 ![](assets/images/1120again.webp)
 
-In Worksheet HTML 1120:Cell A1 
+In Worksheet HTML 1120: next to fx where it says figure id=swappera class="wp-block-table" Click to highlight
+
+<mark>This is the actual cell content of A1</mark>
+
 **CTRL + A** to Select All
 
 ![](assets/images/1120selectall.webp)
 
-**CTRL + C** to Copy
+**CTRL + C** to Copy and now the contents of Cell A1 is now in the clipboard.
 
 <mark>Now we have our correctly formatted html table complete with all the necessary html tags</mark>
-
--------------------------------- 
 
 ## Check Our Result
 
@@ -294,7 +299,9 @@ In the HTML Section paste in the html we just copied.
 
 **CTRL + C** to Copy 
 
-### CSS
+### Fiddle CSS
+
+Now Copy and Paste the CSS code below into the CSS section of Fiddle
 
 <pre>
 table {
@@ -359,34 +366,74 @@ table .thickright {
 }
 </pre>
 
+![](assets/images/fiddlecss.webp)
 
-## Wordpress
+### Fiddle Run
 
+Then Click Run in Fiddle 
 
-### Wordpress Tables
+![](assets/images/fiddlerun.webp)
 
-
-### Wordpress Template
+The user can see the result and verify that it is as expected.
 
 ------------------------------------
 
+### H. Delete HTML Worksheets 
 
-## Google Sheets
+This deletes all of the worksheets(tabs) that have a HTML Prefix in the title.
 
+These are created when a user runs R. Run HTML Automation.
 
+This is a feature added to allow a clear out of worksheets(tabs) with HTML Prefix.
 
-![](assets/images/254copy.webp)
+Select H to Clear HTML Worksheets            |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/htmlclear.webp)  |  ![](assets/images/htmlcleared.webp)
 
+The user is advised that the HTML worksheets are now deleted!
 
+Then the application clears the console and returns to the main menu after 1 second.
 
+Example 253
+  
+Google Sheets                     |  Returned HTML                   |  Live on Browser
+:--------------------------------:|:--------------------------------:|:-----------------------------------:
+![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
 
+Then the application clears the console and returns to the main menu after 10 seconds.
+This delay gives the user time to read the instructions.
 
+------------------------------------
 
+### W. Delete All Worksheets
 
+<mark>Important Note: When testing you should test this option last as it removes all sheets and then you have to copy and paste to populate html_table_builder for other testing</mark>
 
+This deletes all of the worksheets in html_table_builder with the exception of Rules.
 
+This allows the user to go to a reset situation.
 
-## Rules
+The User is advised that 'This will remove all of the worksheets other than Rules'
+
+The user is challenged to input yes if they wish to proceed.
+
+Select C to Clear Sheets             |  Type yes to proceed
+:-----------------:|:-----------------:
+![](assets/images/clearsheets.webp)  |  ![](assets/images/cleared.webp)
+
+The user is advised that the worksheets are now deleted!
+
+Then the application clears the console and returns to the main menu after 1 second.
+
+### Q. Quit
+
+This quits form the application and clears the console.
+
+Then the application clears the console and returns to the main menu after 1 seconds.
+
+------------------------------------
+
+# Google Sheets Rules explained
 
 The Basic Rules for the Sheets are provided in the Rules worksheet(tab).
 
@@ -422,95 +469,12 @@ The user indicates where the borders are to be placed. The application picks up 
 
 For example: 
 
-- 7B means a border left and right on column 7
+- 7B: means a border left and right on column 7
 - 7L:8R means a left border on column 7 and a right border on column 8
 
 <mark>':' is the symbol used to indicate a rule break point</mark>
 
 ------------------------------------
-
-
-
-
-
-
-### C. Clear All Worksheets
-
-<mark>Important Note: When testing you should test this option last as it removes all sheets and then you have to copy and paste to populate html_table_builder for other testing</mark>
-
-This deletes all of the worksheets in html_table_builder with the exception of Rules.
-
-This allows the user to go to a reset situation.
-
-The User is advised that 'This will remove all of the worksheets other than Rules'
-
-The user is challenged to input yes if they wish to proceed.
-
-Select C to Clear Sheets             |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/clearsheets.webp)  |  ![](assets/images/cleared.webp)
-
-The user is advised that the worksheets are now deleted!
-
-Then the application clears the console and returns to the main menu after 1 second.
-
-### D. Delete All HTML Text Files   
-
-This deletes all of the HTML Text Files that are stored for now in assets/htmlfiles
-
-These are created when a user runs R. Run HTML Automation.
-
-This is a feature added to allow a clear out of HTML txt files.
-
-<mark>The R. Run HTML Automation routine will also automatically remove any existing HTML txt files that correspond to any route worksheets(tabs) in html_table_builder sheet. This ensures that the html code is freshly built each time the routine is run</mark>
-
-The User is advised that 'This will remove all of the HTML Text Files'
-
-The user is challenged to input yes if they wish to proceed.
-
-Select D to Delete All HTML Text Files            |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/deletefiles.webp)  |  ![](assets/images/deletedtxt.webp)
-
-The user is advised that the txt files are now deleted!
-
-Then the application clears the console and returns to the main menu after 1 second.
-
-### H. Clear HTML Worksheets 
-
-This deletes all of the worksheets(tabs) that have a HTML Prefix in the title.
-
-These are created when a user runs R. Run HTML Automation.
-
-This is a feature added to allow a clear out of worksheets(tabs) with HTML Prefix.
-
-Select H to Clear HTML Worksheets            |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/htmlclear.webp)  |  ![](assets/images/htmlcleared.webp)
-
-The user is advised that the HTML worksheets are now deleted!
-
-Then the application clears the console and returns to the main menu after 1 second.
-
-
-
-Example 253
-  
-Google Sheets                     |  Returned HTML                   |  Live on Browser
-:--------------------------------:|:--------------------------------:|:-----------------------------------:
-![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
-
-Then the application clears the console and returns to the main menu after 10 seconds.
-This delay gives the user time to read the instructions.
-
-
-### Q. Quit
-
-This quits form the application and clears the console.
-
-Then the application clears the console and returns to the main menu after 1 seconds.
-
-----------------------------------
 
 # Testing
 
@@ -690,17 +654,17 @@ This project has been copied to another Github Repository.
 ## Future Features
 
 - To build a pdf version of the timetable.
-- To read the google sheet formatting instead od relying on border rules.
+- To read the google sheet formatting instead of relying on border rules.
 - To error trap Google sheet connection failures
 - To use Zapier Automation to update Wordpress post with table.
 
-----
+---------------------------------
 
 ## Performance Improvements
 
 - Increased Automation
 
-----
+---------------------------------
  
 ## Credits
 
@@ -718,6 +682,6 @@ https://www.pythonpool.com/python-loop-through-files-in-directory/
 
 Credit to Anna Greaves and Love Sandwiches for Connecting to Google Sheets idea and execution.
 
-----
+---------------------------------
 
 
