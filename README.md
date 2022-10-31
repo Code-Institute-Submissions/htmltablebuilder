@@ -236,6 +236,9 @@ Select R to Run HTML Automation           |  Type yes to proceed
 :-----------------:|:-----------------:
 ![](assets/images/runhtml.webp)  |  ![](assets/images/htmlran.webp)
 
+Then the application clears the console and returns to the main menu after 20 seconds.
+This delay gives the user time to read the instructions.
+
 ### html_table_builder sheet
 
 [View the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
@@ -261,11 +264,11 @@ In Worksheet **HTML 1120** next to **fx** where it says **figure id=swappera cla
 
 <mark>Remember open all links in a new tab</mark>
 
-[To check what our HTML looks like Open Fiddle on Screen 2](https://jsfiddle.net/)
+[To check what our HTML looks like Open jsFiddle on Screen 2](https://jsfiddle.net/)
 
 ![](assets/images/fiddle.webp)
  
-### Fiddle HTML
+### jsFiddle HTML
 
 In the HTML Section paste in the html we just copied.
 
@@ -273,7 +276,7 @@ In the HTML Section paste in the html we just copied.
 
 ![](assets/images/fiddlehtml.webp)
 
-### Fiddle CSS
+### jsFiddle CSS
 
 Now Copy and Paste the CSS code below into the CSS section of Fiddle
 
@@ -342,7 +345,7 @@ table .thickright {
 
 ![](assets/images/fiddlecss.webp)
 
-### Fiddle Run
+### jsFiddle Run
 
 Then Click Run in Fiddle 
 
@@ -351,6 +354,8 @@ Then Click Run in Fiddle
 The user can see the result and verify that it is as expected.
 
 ![](assets/images/fiddlerun.webp)
+
+<mark>End of Walkthrough</mark>
 
 ------------------------------------
 
@@ -369,15 +374,6 @@ Select H to Clear HTML Worksheets            |  Type yes to proceed
 The user is advised that the HTML worksheets are now deleted!
 
 Then the application clears the console and returns to the main menu after 1 second.
-
-Example 253
-  
-Google Sheets                     |  Returned HTML                   |  Live on Browser
-:--------------------------------:|:--------------------------------:|:-----------------------------------:
-![](assets/images/253sheet.webp)  |  ![](assets/images/html253.webp) | ![](assets/images/browser.webp)
-
-Then the application clears the console and returns to the main menu after 10 seconds.
-This delay gives the user time to read the instructions.
 
 ------------------------------------
 
@@ -403,7 +399,7 @@ Then the application clears the console and returns to the main menu after 1 sec
 
 ### Q. Quit
 
-This quits form the application and clears the console.
+This quits from the application and clears the console.
 
 Then the application clears the console and returns to the main menu after 1 seconds.
 
