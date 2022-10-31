@@ -496,33 +496,29 @@ For example:
 ### Google Sheets
 
 - Remove all worksheets(tabs) from html_table_builder
-    - Google Sheets will not let me
+    - Just like Excel, Google Sheets will not let me as there always has to be at least 1 worksheet(tab).
 - Rename Rules
-    - This is a protected sheet so Google sheets will not let me
+    - This is a protected sheet so Google sheets will not let me Rename.
 - Delete or edit data in Rules
-    - This is a protected sheet so Google sheets will not let me
+    - This is a protected sheet so Google sheets will not let me delete or edit.
 
 <mark>These tests are important as the application expects to find at least 1 worksheet(tab) called Rules</mark>
 
 ### Application
 
-- C. Clear All Worksheets when there are no worksheets in html_table_builder
-    - Code runs fine and returns to Main Menu (Rules is always present)
-- C. Clear All Worksheets when there are worksheets in html_table_builder
-    - All worksheets are cleared and returns to Main Menu (Rules is always present)
-- D. Delete All HTML Text Files when there are no txt files in assets/htmlfiles
-    - Code runs fine and returns to Main Menu
-- D. Delete All HTML Text Files when there are txt files in assets/htmlfiles
-    - All text files are deleted and and returns to Main Menu
-- H. Clear HTML Worksheets when there are no HTML Prefix worksheets in html_table_builder
-- H. Clear HTML Worksheets when there are HTML Prefix worksheets in html_table_builder
+- W. Delete All Worksheets when there are **no** worksheets in html_table_builder (other than Rules of course).
+    - Code runs as expected and returns to Main Menu (Rules is always present anyway).
+- W. Delete All Worksheets when there **are** worksheets in html_table_builder
+    - All worksheets are cleared and returns to Main Menu (Rules is always present).
+- H. Clear HTML Worksheets when there are **no** HTML Prefix worksheets in html_table_builder (other than Rules of course).
+- H. Clear HTML Worksheets when there **are** HTML Prefix worksheets in html_table_builder
     - HTML Prefix worksheets are removed and returns to Main Menu
-- R. Run HTML Automation when there are no worksheets other than Rules in html_table_builder
-    - Code runs fine and returns to Main Menu
-- R. Run HTML Automation when there is only one worksheet with no populated cells in html_table_builder
-    - Code runs picks up there is no Header alerts the user and returns to Main Menu
-- R. Run HTML Automation when there is only a worksheet with a title containing the word sheet in html_table_builder
-    - Code runs picks up the bad title (all titles should begin a minimum of a 3 digit route number) alerts the user and returns to Main Menu
+- R. Run HTML Automation when there are **no** worksheets other than Rules in html_table_builder
+    - Code runs as expected and returns to Main Menu
+- R. Run HTML Automation when there is no header row in worksheet(tab) in html_table_builder
+    - Code runs picks up there is no Header alerts the user and returns to Main Menu.
+- R. Run HTML Automation when there is  a worksheet with a title containing the word sheet in html_table_builder as opposed to the expected 3 digits
+    - Code runs picks up the bad title (all titles should begin a minimum of a 3 digit route number) alerts the user and returns to Main Menu.
 
 ![](assets/images/badtitle.webp)
 
@@ -552,11 +548,13 @@ The worksheet is checked for:
 - Q. Quit
     - The application clears the consoles and quits as expected
 
-<mark>For all menu options I also tested for when the user did not type yes</mark>
+<mark>For all menu options I also tested for when the user did not type yes, anything other than yes is trapped and then returns to main menu.</mark>
 
 ### Worksheets with HTML Prefix
 
-Visual check that the html table structure is in place with closing and opening tags
+Visual check that the html table structure is in place with closing and opening tags.
+
+Check in jsFiddle for errors and found no errors.
 
 ---------------------------------
 
@@ -566,7 +564,7 @@ As the PEP8 validator website pep8online.com site is down, I used pycodestyle in
 
 run.py is clear of anything underlined in red.
 
-The 3 problems that are listed are apparaently in relation to the docker file and have nothing to do with the code in run.py.
+The 3 warnings that are listed are apparently in relation to the docker file and have nothing to do with the code in run.py and so can be ignored.
 
 ![](assets/images/pep8.webp)
 
@@ -669,7 +667,7 @@ This project has been copied to another Github Repository.
 - To build a pdf version of the timetable.
 - To read the google sheet formatting instead of relying on border rules.
 - To error trap Google sheet connection failures
-- To use Zapier Automation to update Wordpress post with table.
+- To use something like Zapier Automation to update Wordpress post with table.
 
 ---------------------------------
 
